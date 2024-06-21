@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://6pv3nu7jn0wk"]
+
+[ext_resource type="FontFile" uid="uid://d12gdnvn6dk54" path="res://helvetica-255/Helvetica-Bold.ttf" id="1_0cxf2"]
+[ext_resource type="FontFile" uid="uid://b1q2cdmncwl3b" path="res://helvetica-255/Helvetica.ttf" id="1_2absw"]
+
+[resource]
+default_font = ExtResource("1_0cxf2")
+default_font_size = 60
+Subtitle/font_sizes/FontSize = 49
+Subtitle/fonts/Helvetica = ExtResource("1_2absw")
+Title/fonts/Font = ExtResource("1_0cxf2")
