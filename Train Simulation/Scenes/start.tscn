@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://6pv3nu7jn0wk" path="res://Scenes/theme.tres" id="1_qkivj"]
 [ext_resource type="Script" path="res://Scenes/startui.gd" id="1_u52pd"]
+
 [ext_resource type="Texture2D" uid="uid://7xkdh8p6mkiv" path="res://UISprite/metroarrow.png" id="3_r8f6h"]
 [ext_resource type="Texture2D" uid="uid://bqpyaxxsll2gm" path="res://circle-512.png" id="4_8c6rx"]
 
@@ -468,10 +469,12 @@ fit_content = true
 
 [node name="testSlider" type="HSlider" parent="Panel/ColorRect/VBoxContainer"]
 layout_mode = 2
+value = 100.0
 
 [node name="startButton" type="Button" parent="Panel/ColorRect/VBoxContainer"]
 layout_mode = 2
 text = "Confirm & Generate"
+
 
 [node name="Metroarrow_backdrop" type="Sprite2D" parent="Panel/ColorRect"]
 modulate = Color(0.576516, 0.088977, 0.0779086, 1)
