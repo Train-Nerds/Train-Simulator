@@ -5,14 +5,18 @@ extends Control
 @onready var cities_amt
 
 
+var Helvetica = preload("res://helvetica-255/Helvetica.ttf")
+var defaultFontSize = 50
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$AnimationPlayer.play("OpeningAnimation") # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
 
 
 

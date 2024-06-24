@@ -1,10 +1,391 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4v0py0r1jbcf"]
+[gd_scene load_steps=8 format=3 uid="uid://c4v0py0r1jbcf"]
 
 [ext_resource type="Theme" uid="uid://6pv3nu7jn0wk" path="res://Scenes/theme.tres" id="1_qkivj"]
 [ext_resource type="Script" path="res://Scenes/startui.gd" id="1_u52pd"]
+[ext_resource type="Texture2D" uid="uid://7xkdh8p6mkiv" path="res://UISprite/metroarrow.png" id="3_r8f6h"]
+[ext_resource type="Texture2D" uid="uid://bqpyaxxsll2gm" path="res://circle-512.png" id="4_8c6rx"]
 
-[ext_resource type="FontFile" uid="uid://b1q2cdmncwl3b" path="res://helvetica-255/Helvetica.ttf" id="2_nnb02"]
-[ext_resource type="Texture2D" uid="uid://dranh72nkn84e" path="res://helvetica-255/StopIcon.png" id="3_uffmu"]
+[sub_resource type="Animation" id="Animation_467qh"]
+resource_name = "OpeningAnimation"
+length = 5.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/ColorRect/Metroarrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.95, 1.32, 1.65, 1.85),
+"transitions": PackedFloat32Array(1.66045, 0.11921, 1.66045, 1, 1),
+"update": 0,
+"values": [Vector2(-746, 60), Vector2(546.25, 60), Vector2(343.25, 60), Vector2(427.098, 60), Vector2(527.25, 60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/ColorRect/Metroarrow_backdrop:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.02, 0.97, 1.47, 1.67, 1.87),
+"transitions": PackedFloat32Array(1.68179, 0.210224, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-744, 73.62), Vector2(544, 73.62), Vector2(346, 73.62), Vector2(429, 73.62), Vector2(527, 73.62)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/ColorRect/WhiteCircle:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.28, 2.37),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(0.5, 0.5)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/ColorRect/BlackCircle:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.65, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.84, 2.37)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/ColorRect/BlackCircle:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.65, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.84, 2.37)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.32, 2.37)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.32, 2.37)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.32, 2.37)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+"times": PackedFloat32Array(1.32, 2.37)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:r")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.32, 2.37)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:g")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.32, 2.37)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:b")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.32, 2.37)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:a")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.32, 2.32)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Panel/ColorRect/RichTextLabel:modulate:r")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.54, 2.75)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Panel/ColorRect/RichTextLabel:modulate:g")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.54, 2.75)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Panel/ColorRect/RichTextLabel:modulate:b")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.54, 2.75)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Panel/ColorRect/RichTextLabel:modulate:a")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.54, 2.75)
+}
+
+[sub_resource type="Animation" id="Animation_dhepb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/ColorRect/Metroarrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(546.25, 60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/ColorRect/WhiteCircle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/ColorRect/BlackCircle:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.65, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/ColorRect/BlackCircle:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.65, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:r")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:g")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:b")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Panel/ColorRect/RichTextLabel:modulate:r")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Panel/ColorRect/RichTextLabel:modulate:g")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Panel/ColorRect/RichTextLabel:modulate:b")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Panel/ColorRect/RichTextLabel:modulate:a")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gfpxj"]
+_data = {
+"OpeningAnimation": SubResource("Animation_467qh"),
+"RESET": SubResource("Animation_dhepb")
+}
 
 [node name="Start" type="Control"]
 layout_mode = 3
@@ -13,94 +394,120 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
 script = ExtResource("1_u52pd")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1160.0
-offset_bottom = 126.0
-color = Color(0.933333, 0.207843, 0.180392, 1)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gfpxj")
+}
 
-[node name="GenerationOptions_text" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 19.0
-offset_right = 605.0
-offset_bottom = 80.0
-theme = ExtResource("1_qkivj")
-theme_type_variation = &"Title"
-text = "Generation Options"
-fit_content = true
-scroll_active = false
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Subtitle_text" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 76.0
-offset_right = 610.0
-offset_bottom = 110.0
-theme = ExtResource("1_qkivj")
-theme_type_variation = &"Subtitle"
-theme_override_fonts/normal_font = ExtResource("2_nnb02")
-theme_override_font_sizes/normal_font_size = 26
-text = "Configure these parameters to create your terrain."
-fit_content = true
-scroll_active = false
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.00012207
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="StopIcon" type="Sprite2D" parent="."]
-position = Vector2(1097, 64)
-scale = Vector2(0.205556, 0.205556)
-texture = ExtResource("3_uffmu")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ColorRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.196
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = -4.0
+scale = Vector2(1.00217, 1)
 
-[node name="ImageDimensions_text" type="RichTextLabel" parent="VBoxContainer"]
+[node name="ImageDimensions_text" type="RichTextLabel" parent="Panel/ColorRect/VBoxContainer"]
+clip_contents = false
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("1_qkivj")
+theme_override_colors/default_color = Color(0.137255, 0.121569, 0.12549, 1)
 text = "Image Dimensions"
 fit_content = true
 
-[node name="Descriptor1_text" type="RichTextLabel" parent="VBoxContainer"]
+[node name="Descriptor1_text" type="RichTextLabel" parent="Panel/ColorRect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_qkivj")
 text = "Height and width in pixels."
 fit_content = true
 
-[node name="HeightScale_text" type="RichTextLabel" parent="VBoxContainer"]
+[node name="HeightScale_text" type="RichTextLabel" parent="Panel/ColorRect/VBoxContainer"]
 layout_mode = 2
 text = "Height Scale"
 fit_content = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/ColorRect/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 text = "One corresponds with dramatic landscapes. | Zero corresponds to flat terrain.
 "
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel/ColorRect/VBoxContainer"]
 layout_mode = 2
 text = "Maximum Number of Cities"
 fit_content = true
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="Panel/ColorRect/VBoxContainer"]
 layout_mode = 2
 text = "This value will control how many cities appear on the generated terrain."
 fit_content = true
 
-[node name="testSlider" type="HSlider" parent="VBoxContainer"]
+[node name="testSlider" type="HSlider" parent="Panel/ColorRect/VBoxContainer"]
 layout_mode = 2
 
-[node name="startButton" type="Button" parent="VBoxContainer"]
+[node name="startButton" type="Button" parent="Panel/ColorRect/VBoxContainer"]
 layout_mode = 2
 text = "Confirm & Generate"
 
-[connection signal="drag_ended" from="VBoxContainer/testSlider" to="." method="_on_test_slider_drag_ended"]
-[connection signal="value_changed" from="VBoxContainer/testSlider" to="." method="_on_test_slider_value_changed"]
-[connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_button_pressed"]
+[node name="Metroarrow_backdrop" type="Sprite2D" parent="Panel/ColorRect"]
+modulate = Color(0.576516, 0.088977, 0.0779086, 1)
+position = Vector2(527, 73.62)
+scale = Vector2(0.397351, 0.389457)
+texture = ExtResource("3_r8f6h")
 
+[node name="Metroarrow" type="Sprite2D" parent="Panel/ColorRect"]
+self_modulate = Color(0.933333, 0.207843, 0.180392, 1)
+position = Vector2(546.25, 60)
+scale = Vector2(0.397351, 0.397351)
+texture = ExtResource("3_r8f6h")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/ColorRect"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 24.0
+offset_right = 911.0
+offset_bottom = 100.0
+size_flags_vertical = 2
+theme = ExtResource("1_qkivj")
+theme_override_font_sizes/normal_font_size = 75
+text = "Generation Options"
+fit_content = true
+
+[node name="BlackCircle" type="Sprite2D" parent="Panel/ColorRect"]
+modulate = Color(0.137255, 0.121569, 0.12549, 1)
+position = Vector2(1094, 80)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("4_8c6rx")
+
+[node name="WhiteCircle" type="Sprite2D" parent="Panel/ColorRect"]
+position = Vector2(1094, 80)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("4_8c6rx")
+
+[connection signal="drag_ended" from="Panel/ColorRect/VBoxContainer/testSlider" to="." method="_on_test_slider_drag_ended"]
+[connection signal="value_changed" from="Panel/ColorRect/VBoxContainer/testSlider" to="." method="_on_test_slider_value_changed"]
+[connection signal="pressed" from="Panel/ColorRect/VBoxContainer/startButton" to="." method="_on_start_button_pressed"]
