@@ -3,6 +3,9 @@ extends Control
 @onready var my_slider := $VBoxContainer/testSlider
 @onready var my_start_button := $VBoxContainer/startButton
 
+var Helvetica = preload("res://helvetica-255/Helvetica.ttf")
+var defaultFontSize = 50
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("OpeningAnimation") # Replace with function body.
@@ -11,6 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
 
 
 
