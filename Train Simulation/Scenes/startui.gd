@@ -3,22 +3,22 @@ extends Control
 @onready var my_slider := $VBoxContainer/testSlider
 @onready var my_start_button := $VBoxContainer/startButton
 @onready var cities_amt
+@onready var file = FileAccess.open(ProjectSettings.globalize_path("res://") + "settings.txt", FileAccess.READ_WRITE)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	 # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 
-
 func _on_test_slider_value_changed(value):
 	#placeholder for on value change
-	var cities_amt = value
+	cities_amt = str(value)
 	print("The value has been changed to ", cities_amt, " cities.")
 	
 func _on_test_slider_drag_ended(value_changed):
@@ -28,8 +28,8 @@ func _on_test_slider_drag_ended(value_changed):
 
 
 func _on_start_button_pressed():
-	var file = FileAccess.open(ProjectSettings.globalize_path("res://") + "settings.txt", FileAccess.WRITE)
-	file.store_var(cities_amt)
+	
+	file.store_string(cities_amt)
 	file = null
 	#export user generation preferences
 
