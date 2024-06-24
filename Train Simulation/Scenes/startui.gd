@@ -6,14 +6,20 @@ extends Control
 @onready var file = FileAccess.open(ProjectSettings.globalize_path("res://") + "settings.txt", FileAccess.READ_WRITE)
 
 
+var Helvetica = preload("res://helvetica-255/Helvetica.ttf")
+var defaultFontSize = 50
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	 # Replace with function body.
-	pass
+
+	$AnimationPlayer.play("OpeningAnimation") # Replace with function body.
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
 
 
 func _on_test_slider_value_changed(value):
