@@ -4,10 +4,12 @@ import pandas as pd
 
 
 splineDataCollums = ['Start X', 'Start Y', 'Start Angle', 'Start Strength', 'End X', 'End Y', 'End Angle', 'End Strength']
-splineDataRows = [[0.3, 2.0, 1.0, 0.20, 1.0, 4.0, 0.3, 0.4],[0.3, 2.0, 1.0, 0.20, 1.0, 4.0, 0.3, 0.4],[0.3, 2.0, 1.0, 0.20, 1.0, 4.0, 0.3, 0.4]]
+splineDataRows = [[0.3, 2.0, 1.0, 0.20, 1.0, 4.0, 0.3, 0.4],
+                  [0.3, 2.0, 1.0, 0.20, 1.0, 4.0, 0.3, 0.4],
+                  [0.3, 2.0, 1.0, 0.20, 1.0, 4.0, 0.3, 0.4]]
 
-inputImageHeight = 1000
-inputImageWidth = 2000
+inputImageHeight = 500
+inputImageWidth = 250
 
 SelectionHeight = 100
 SelectionWidth = 100
@@ -15,7 +17,7 @@ SelectionWidth = 100
 
 modelInputSize = inputImageHeight * inputImageWidth + 2 #2 represents the Selection x and y coords from the prev iteration
 
-exampleScreen = pd.DataFrame(np.array([[0,1,1,2,3,4] * (1000 * 1000)]),columns=['R','G','B','A'])
+exampleScreen = pd.DataFrame(np.array([[0,1,1,2] for i in range(inputImageHeight * inputImageWidth)]),columns=['R','G','B','A'])
 
 
 Spline_List = []
@@ -29,7 +31,7 @@ def get_Encoded_And_Initialized_Data():
 def SendSplines():
     spline_Data = pd.DataFrame(np.array(splineDataRows),columns=splineDataCollums)
     print('attempting')
-    spline_Data.to_csv(path_or_buf='MLG_Architecture\Spline_Sender.csv')
+    spline_Data.to_csv(path_or_buf='MLG_Architecture\\Spline_Sender.csv')
 
 def get_RGBA_Array_Section():
     return(None) #Implementation Here
@@ -41,7 +43,7 @@ def runModel():
         
     
 class MLG_Input:
-    Full_RGBA_Array = Full_RGBA_Array()
+    Full_RGBA_Array = None
     Section_X_Position = 0
     Section_Y_Position = 0
     Spline_List = []
@@ -78,10 +80,10 @@ class Full_RGBA_Array:
         return(RGBA)
     def write_RGBA_at_Point(self, X: int, Y: int, RGBA: list):
         indexFromCoord = inputImageWidth * X + Y
-        self.imageDataTable['R'].iloc(indexFromCoord) = RGBA[0]
-        self.imageDataTable['G'].iloc(indexFromCoord) = RGBA[1]
-        self.imageDataTable['B'].iloc(indexFromCoord) = RGBA[2]
-        self.imageDataTable['A'].iloc(indexFromCoord) = RGBA[3]
+        self.imageDataTable['R'][indexFromCoord] = RGBA[0]
+        self.imageDataTable['G'][indexFromCoord] = RGBA[1]
+        self.imageDataTable['B'][indexFromCoord] = RGBA[2]
+        self.imageDataTable['A'][indexFromCoord] = RGBA[3]
     
     def get_Selection(self, SelectionHeight, SelectionWidth):
         selectionData = []
@@ -104,3 +106,6 @@ class RGBA_Section:
         indexFromCoord = inputImageWidth * X + Y
         RGBA = [self.selection['R'].iloc(indexFromCoord),self.selection['G'].iloc(indexFromCoord),self.selection['B'].iloc(indexFromCoord),self.selection['A'].iloc(indexFromCoord)]
         return(RGBA)
+
+
+SendSplines()
