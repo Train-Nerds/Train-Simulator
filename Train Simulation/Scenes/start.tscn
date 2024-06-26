@@ -2,7 +2,6 @@
 
 [ext_resource type="Theme" uid="uid://6pv3nu7jn0wk" path="res://Scenes/theme.tres" id="1_qkivj"]
 [ext_resource type="Script" path="res://Scenes/startui.gd" id="1_u52pd"]
-
 [ext_resource type="Texture2D" uid="uid://7xkdh8p6mkiv" path="res://UISprite/metroarrow.png" id="3_r8f6h"]
 [ext_resource type="Texture2D" uid="uid://bqpyaxxsll2gm" path="res://circle-512.png" id="4_8c6rx"]
 
@@ -430,18 +429,24 @@ offset_top = 20.0
 offset_right = -4.0
 scale = Vector2(1.00217, 1)
 
+[node name="Control" type="Control" parent="Panel/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0.25, 11.125)
+layout_mode = 2
+
 [node name="ImageDimensions_text" type="RichTextLabel" parent="Panel/ColorRect/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
-size_flags_vertical = 3
 theme = ExtResource("1_qkivj")
 theme_override_colors/default_color = Color(0.137255, 0.121569, 0.12549, 1)
-text = "Image Dimensions"
+theme_override_font_sizes/normal_font_size = 31
+text = "Image Dimensions (make default 1000x1000)"
 fit_content = true
 
 [node name="Descriptor1_text" type="RichTextLabel" parent="Panel/ColorRect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_qkivj")
+theme_override_colors/default_color = Color(0.137255, 0.121569, 0.12549, 1)
+theme_override_font_sizes/normal_font_size = 16
 text = "Height and width in pixels."
 fit_content = true
 
@@ -475,17 +480,16 @@ value = 100.0
 layout_mode = 2
 text = "Confirm & Generate"
 
-
 [node name="Metroarrow_backdrop" type="Sprite2D" parent="Panel/ColorRect"]
 modulate = Color(0.576516, 0.088977, 0.0779086, 1)
-position = Vector2(527, 73.62)
-scale = Vector2(0.397351, 0.389457)
+position = Vector2(527, 80.906)
+scale = Vector2(0.397351, 0.437709)
 texture = ExtResource("3_r8f6h")
 
 [node name="Metroarrow" type="Sprite2D" parent="Panel/ColorRect"]
 self_modulate = Color(0.933333, 0.207843, 0.180392, 1)
 position = Vector2(546.25, 60)
-scale = Vector2(0.397351, 0.397351)
+scale = Vector2(0.397351, 0.423841)
 texture = ExtResource("3_r8f6h")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/ColorRect"]
