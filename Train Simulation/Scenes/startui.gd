@@ -11,9 +11,11 @@ var defaultFontSize = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	var img = Image.create(256, 256, false, Image.FORMAT_RGB8)
+	img.fill(Color.RED)
+	img.save_png("res://py_pics/saved_texture.png")
 	$AnimationPlayer.play("OpeningAnimation") # Replace with function body.
-
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,20 +24,20 @@ func _process(delta):
 
 
 
-func _on_test_slider_value_changed(value):
+##func _on_test_slider_value_changed(value):
 	#placeholder for on value change
-	cities_amt = str(value)
-	print("The value has been changed to ", cities_amt, " cities.")
+	##cities_amt = str(value)
+	##print("The value has been changed to ", cities_amt, " cities.")
 	
-func _on_test_slider_drag_ended(value_changed):
+##func _on_test_slider_drag_ended(value_changed):
 	#possible place to execute something once user is finished
 	#changing a value
-	pass # Replace with function body.
+	##pass # Replace with function body.
 
 
-func _on_start_button_pressed():
+##func _on_start_button_pressed():
 	
-	file.store_string(cities_amt)
-	file = null
+	##file.store_string(cities_amt)
+	##file = null
 	#export user generation preferences
 
