@@ -10,8 +10,17 @@ var height = 1000
 var minimum = -500000
 var maximum = 500000
 @onready var heightmap = Image.create(width, height, false, Image.FORMAT_RGBA8)
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#signal testing, should communicate with noise_read.gd
+	var emitter_node = get_node("noise_map")
+	emitter_node.connect("beans", self , "_on_my_signal_received")
+	
+	
 	altitude.seed = randi()
 	generate_chunk(player.position)
 	
@@ -23,6 +32,14 @@ func _ready():
 	else:
 		print("Ahhhhhhh, the image is burning!")
 	
+
+
+#signal testing
+func _on_my_signal_received(value):
+	print("Received signal with value:", value)
+	
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -50,3 +67,5 @@ func generate_chunk(position):
 					set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2(round((alt+10)/5), round((alt+10)/5)))
 	
 	print("Max: " + str(maximum) + ", Min: " + str(minimum))
+	
+
