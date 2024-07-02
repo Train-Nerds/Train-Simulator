@@ -1,12 +1,12 @@
 extends TileMap
-
+##tilemap output
 var altitude = FastNoiseLite.new()
 var temperature = FastNoiseLite.new()
 var moisture = FastNoiseLite.new()
 ##set these for size
 var width = 1000
 var height = 1000
-@onready var player = get_parent().get_child(1)
+##@onready var player = get_parent().get_child(1)
 var minimum = -500000
 var maximum = 500000
 @onready var heightmap = Image.create(width, height, false, Image.FORMAT_RGBA8)
@@ -17,12 +17,12 @@ var maximum = 500000
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#signal testing, should communicate with noise_read.gd
-	var emitter_node = get_node("noise_map")
-	emitter_node.connect("beans", self , "_on_my_signal_received")
+	var emitter_node = get_node("ProceduralGeneration")
+	emitter_node.connect("beans", _on_my_signal_received)
 	
 	
 	altitude.seed = randi()
-	generate_chunk(player.position)
+	##generate_chunk(player.position)
 	
 	var file_path_png = OS.get_user_data_dir() + "/heightmap.png"
 	var result_png = heightmap.save_png(file_path_png)
@@ -33,18 +33,15 @@ func _ready():
 		print("Ahhhhhhh, the image is burning!")
 	
 
-
 #signal testing
 func _on_my_signal_received(value):
-	print("Received signal with value:", value)
-	
-
-
+	print("hello")
+	print(value)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	print("Max: " + str(maximum) + ", Min: " + str(minimum))
+	pass
+	##print("Max: " + str(maximum) + ", Min: " + str(minimum))
 
 
 func generate_chunk(position):
