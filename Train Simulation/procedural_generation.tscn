@@ -269,9 +269,10 @@ script = ExtResource("4_q5pv3")
 
 [node name="Camera2D" type="Camera2D" parent="ProceduralGeneration"]
 offset = Vector2(512, 512)
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.05, 0.05)
 
 [node name="noise_map" type="TextureRect" parent="ProceduralGeneration"]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_pqjxq")
@@ -280,3 +281,8 @@ texture = ExtResource("5_pqjxq")
 position = Vector2(502, 484)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_wfnk8")
+
+[connection signal="alpha" from="ProceduralGeneration" to="." method="_on_procedural_generation_alpha"]
+[connection signal="blue" from="ProceduralGeneration" to="." method="_on_procedural_generation_blue"]
+[connection signal="green" from="ProceduralGeneration" to="." method="_on_procedural_generation_green"]
+[connection signal="red" from="ProceduralGeneration" to="." method="_on_procedural_generation_red"]
