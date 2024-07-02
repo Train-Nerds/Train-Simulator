@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://noise_read.gd" id="1_kwa77"]
 
-[node name="Node2D" type="Node2D"]
+[node name="node2d_noise_read" type="Node2D"]
 script = ExtResource("1_kwa77")
