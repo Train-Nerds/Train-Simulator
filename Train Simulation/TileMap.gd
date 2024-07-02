@@ -10,15 +10,14 @@ var height = 1000
 var minimum = -500000
 var maximum = 500000
 @onready var heightmap = Image.create(width, height, false, Image.FORMAT_RGBA8)
-
+@onready var player = $ProceduralGeneration/player
+@onready var tile_pos = player.position
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#signal testing, should communicate with noise_read.gd
-	var emitter_node = get_node("ProceduralGeneration")
-	emitter_node.connect("beans", _on_my_signal_received)
 	
 	
 	altitude.seed = randi()
@@ -34,9 +33,7 @@ func _ready():
 	
 
 #signal testing
-func _on_my_signal_received(value):
-	print("hello")
-	print(value)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -65,4 +62,31 @@ func generate_chunk(position):
 	
 	print("Max: " + str(maximum) + ", Min: " + str(minimum))
 	
+
+
+
+
+
+func _on_procedural_generation_red(red, x, y):
+	 # Replace with function body.
+	var tile_pos = local_to_map(position)
+	if red > 0:
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(round(red/63.75),round(red/63.75)))
+	
+
+func _on_procedural_generation_green(green, x, y):
+	
+	var tile_pos = local_to_map(position)
+	if green > 0:
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
+	
+
+func _on_procedural_generation_blue(blue, x, y):
+	
+	var tile_pos = local_to_map(position)
+	if blue > 0:
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(3,2))
+	
+func _on_procedural_generation_alpha(alpha, x, y):
+	pass # Replace with function body.
 
