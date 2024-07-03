@@ -4,7 +4,7 @@ extends Control
 @onready var my_start_button := $VBoxContainer/startButton
 @onready var cities_amt
 @onready var file = FileAccess.open(ProjectSettings.globalize_path("res://") + "settings.txt", FileAccess.READ_WRITE)
-
+@onready var closing = false
 
 var Helvetica = preload("res://helvetica-255/Helvetica.ttf")
 var defaultFontSize = 50
@@ -22,22 +22,12 @@ func _ready():
 func _process(delta):
 	pass
 
+func _on_start_button_pressed():
+	closing = true
+	$AnimationPlayer.play("OpeningAnimation", -1, 1.0, true)
 
 
-##func _on_test_slider_value_changed(value):
-	#placeholder for on value change
-	##cities_amt = str(value)
-	##print("The value has been changed to ", cities_amt, " cities.")
-	
-##func _on_test_slider_drag_ended(value_changed):
-	#possible place to execute something once user is finished
-	#changing a value
-	##pass # Replace with function body.
 
-
-##func _on_start_button_pressed():
-	
-	##file.store_string(cities_amt)
-	##file = null
-	#export user generation preferences
-
+func _on_timer_timeout():
+	if(not closing):
+		$AnimationPlayer.play("ScrollingText")
