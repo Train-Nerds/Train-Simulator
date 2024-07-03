@@ -64,29 +64,26 @@ func generate_chunk(position):
 	
 
 
-
-
-
-func _on_procedural_generation_red(red, x, y):
-	 # Replace with function body.
-	var tile_pos = local_to_map(position)
-	if red > 0:
-		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(round(red/63.75),round(red/63.75)))
+# func _on_procedural_generation_red(red, x, y):
+	 # # Replace with function body.
+	# var tile_pos = local_to_map(position)
+	# if red > 0:
+		# set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(round(red/63.75),round(red/63.75)))
 	
 
-func _on_procedural_generation_green(green, x, y):
+# func _on_procedural_generation_green(green, x, y):
 	
-	var tile_pos = local_to_map(position)
-	if green > 0:
-		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
+	# var tile_pos = local_to_map(position)
+	# if green > 0:
+		# set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
 	
 
-func _on_procedural_generation_blue(blue, x, y):
+# func _on_procedural_generation_blue(blue, x, y):
 	
-	var tile_pos = local_to_map(position)
-	if blue > 0:
-		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(3,2))
+	# var tile_pos = local_to_map(position)
+	# if blue > 0:
+		# set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(3,2))
 	
-func _on_procedural_generation_alpha(alpha, x, y):
-	pass # Replace with function body.
+# func _on_procedural_generation_alpha(alpha, x, y):
+	# pass # Replace with function body.
 
