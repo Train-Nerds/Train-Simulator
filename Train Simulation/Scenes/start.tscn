@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c4v0py0r1jbcf"]
+[gd_scene load_steps=26 format=3 uid="uid://c4v0py0r1jbcf"]
 
 [ext_resource type="Theme" uid="uid://6pv3nu7jn0wk" path="res://Scenes/theme.tres" id="1_qkivj"]
 [ext_resource type="Script" path="res://Scenes/startui.gd" id="1_u52pd"]
@@ -16,6 +16,7 @@
 [ext_resource type="FontFile" uid="uid://dl4um7ynrmw5m" path="res://helvetica-255/helvetica-rounded-bold-5871d05ead8de.otf" id="11_sol58"]
 [ext_resource type="Script" path="res://Scenes/numOfCitiesSlider.gd" id="12_dos8b"]
 [ext_resource type="Texture2D" uid="uid://bmwuk10muyyte" path="res://UISprite/metroLine.png" id="12_fi416"]
+[ext_resource type="Script" path="res://Scenes/WhiteCircle.gd" id="13_tfvl6"]
 [ext_resource type="FontFile" uid="uid://bm555n6237nj7" path="res://metro-time-sign.ttf" id="13_yrew1"]
 [ext_resource type="Script" path="res://Scenes/MetroSignAnimation.gd" id="14_pa88p"]
 [ext_resource type="Script" path="res://Scenes/numOfCities_text.gd" id="15_cx1pn"]
@@ -135,7 +136,7 @@ tracks/9/loop_wrap = true
 tracks/9/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.99, 3.5)
+"times": PackedFloat32Array(0, 1.99, 2.68)
 }
 tracks/10/type = "bezier"
 tracks/10/imported = false
@@ -146,7 +147,7 @@ tracks/10/loop_wrap = true
 tracks/10/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.99, 3.5)
+"times": PackedFloat32Array(0, 1.99, 2.68)
 }
 
 [sub_resource type="Animation" id="Animation_dhepb"]
@@ -610,6 +611,7 @@ texture = ExtResource("4_8c6rx")
 position = Vector2(2161, 148)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("4_8c6rx")
+script = ExtResource("13_tfvl6")
 
 [node name="BlackCircle3" type="Sprite2D" parent="."]
 self_modulate = Color(0.72549, 0.2, 0.678431, 1)
@@ -779,6 +781,7 @@ mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
 [node name="closingTimer" type="Timer" parent="."]
+wait_time = 1.2
 
 [connection signal="text_submitted" from="Panel/ColorRect/VBoxContainer/HBoxContainer/waterHeight_text" to="Panel/ColorRect/VBoxContainer/HBoxContainer/waterHeight_text" method="_on_text_submitted"]
 [connection signal="text_submitted" from="Panel/ColorRect/VBoxContainer/seedInput_text" to="Panel/ColorRect/VBoxContainer/seedInput_text" method="_on_text_submitted"]
