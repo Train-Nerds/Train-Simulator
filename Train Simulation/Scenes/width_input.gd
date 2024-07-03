@@ -1,4 +1,4 @@
-extends Label
+extends LineEdit
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,5 +11,5 @@ func _process(delta):
 	pass
 
 
-func _on_num_of_cities_slider_value_changed(value):
-	text = "Number of Cities: " + str(value)
+func _on_text_changed(new_text):
+	pass # Replace with function body.

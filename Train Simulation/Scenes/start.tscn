@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4v0py0r1jbcf"]
+[gd_scene load_steps=25 format=3 uid="uid://c4v0py0r1jbcf"]
 
 [ext_resource type="Theme" uid="uid://6pv3nu7jn0wk" path="res://Scenes/theme.tres" id="1_qkivj"]
 [ext_resource type="Script" path="res://Scenes/startui.gd" id="1_u52pd"]
@@ -9,6 +9,8 @@
 [ext_resource type="FontFile" uid="uid://yclygyacyh5v" path="res://helvetica-255/Helvetica-Oblique.ttf" id="4_ny6f6"]
 [ext_resource type="Texture2D" uid="uid://btilynfuv7q6d" path="res://UISprite/arrow.png" id="5_w73rj"]
 [ext_resource type="StyleBox" uid="uid://c3xow7kryogv0" path="res://MetroLineStyle.tres" id="8_8o4du"]
+[ext_resource type="Script" path="res://Scenes/heightInput.gd" id="9_kpccu"]
+[ext_resource type="Script" path="res://Scenes/seedIndput_text.gd" id="10_3t3er"]
 [ext_resource type="Texture2D" uid="uid://df82o73omkunr" path="res://UISprite/bitmap.png" id="10_n8su7"]
 [ext_resource type="Texture2D" uid="uid://b2vy821rkqm3x" path="res://UISprite/circle-512.png" id="10_yadut"]
 [ext_resource type="FontFile" uid="uid://dl4um7ynrmw5m" path="res://helvetica-255/helvetica-rounded-bold-5871d05ead8de.otf" id="11_sol58"]
@@ -83,153 +85,65 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:r")
+tracks/5/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:r")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1.32, 2.37)
+"times": PackedFloat32Array(1.54, 2.75)
 }
 tracks/6/type = "bezier"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:g")
+tracks/6/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:g")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1.32, 2.37)
+"times": PackedFloat32Array(1.54, 2.75)
 }
 tracks/7/type = "bezier"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:b")
+tracks/7/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:b")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1.32, 2.37)
+"times": PackedFloat32Array(1.54, 2.75)
 }
 tracks/8/type = "bezier"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:a")
+tracks/8/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:a")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
-"times": PackedFloat32Array(1.32, 2.37)
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.54, 2.75)
 }
 tracks/9/type = "bezier"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:r")
+tracks/9/path = NodePath("startButton:scale:x")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1.32, 2.37)
-}
-tracks/10/type = "bezier"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:g")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1.32, 2.37)
-}
-tracks/11/type = "bezier"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:b")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1.32, 2.37)
-}
-tracks/12/type = "bezier"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:a")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1.32, 2.32)
-}
-tracks/13/type = "bezier"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:r")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1.54, 2.75)
-}
-tracks/14/type = "bezier"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:g")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1.54, 2.75)
-}
-tracks/15/type = "bezier"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:b")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1.54, 2.75)
-}
-tracks/16/type = "bezier"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:a")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1.54, 2.75)
-}
-tracks/17/type = "bezier"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("startButton:scale:x")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1.99, 3.5)
 }
-tracks/18/type = "bezier"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("startButton:scale:y")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("startButton:scale:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1.99, 3.5)
@@ -286,7 +200,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:r")
+tracks/4/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:r")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -297,7 +211,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:g")
+tracks/5/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:g")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -308,7 +222,7 @@ tracks/5/keys = {
 tracks/6/type = "bezier"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:b")
+tracks/6/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:b")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -319,7 +233,7 @@ tracks/6/keys = {
 tracks/7/type = "bezier"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel:modulate:a")
+tracks/7/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:a")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -327,139 +241,63 @@ tracks/7/keys = {
 "points": PackedFloat32Array(),
 "times": PackedFloat32Array()
 }
-tracks/8/type = "bezier"
+tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:r")
+tracks/8/path = NodePath("Panel/ColorRect/Metroarrow_backdrop:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-tracks/9/type = "bezier"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:g")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-tracks/10/type = "bezier"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:b")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-tracks/11/type = "bezier"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Panel/ColorRect/VBoxContainer/RichTextLabel2:theme_override_colors/default_color:a")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-tracks/12/type = "bezier"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:r")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-tracks/13/type = "bezier"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:g")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-tracks/14/type = "bezier"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:b")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-tracks/15/type = "bezier"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Panel/ColorRect/GenerationOptions_text:modulate:a")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("Panel/ColorRect/Metroarrow_backdrop:position")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1203, 73.62)]
 }
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("Panel/ColorRect/Instructions_anim:position")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Panel/ColorRect/Instructions_anim:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(2307, 201)]
 }
-tracks/18/type = "bezier"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("startButton:scale:x")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("startButton:scale:x")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/19/type = "bezier"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("startButton:scale:y")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("startButton:scale:y")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ColorRect:color")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_a6uiq"]
@@ -479,11 +317,27 @@ tracks/0/keys = {
 "values": [Vector2(2307, 201), Vector2(-2560, 201)]
 }
 
+[sub_resource type="Animation" id="Animation_628dq"]
+resource_name = "closing_Animations"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gfpxj"]
 _data = {
 "OpeningAnimation": SubResource("Animation_467qh"),
 "RESET": SubResource("Animation_dhepb"),
-"ScrollingText": SubResource("Animation_a6uiq")
+"ScrollingText": SubResource("Animation_a6uiq"),
+"closing_Animations": SubResource("Animation_628dq")
 }
 
 [node name="Start" type="Control"]
@@ -531,8 +385,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 2307.0
 offset_top = 201.0
-offset_right = 2565.0
-offset_bottom = -993.0
+offset_right = 2307.0
+offset_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.974292, 0.563468, 1.54018e-06, 1)
@@ -552,7 +406,7 @@ anchor_top = 0.196
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 215.0
-offset_top = 53.984
+offset_top = 75.984
 offset_right = -4.0
 scale = Vector2(0.99077, 1)
 
@@ -567,7 +421,7 @@ theme = ExtResource("1_qkivj")
 theme_override_colors/default_color = Color(0.137255, 0.121569, 0.12549, 1)
 theme_override_fonts/normal_font = ExtResource("3_8gg6m")
 theme_override_font_sizes/normal_font_size = 62
-text = "Image Dimensions"
+text = "Water Level"
 fit_content = true
 
 [node name="Descriptor1_text" type="RichTextLabel" parent="Panel/ColorRect/VBoxContainer"]
@@ -576,7 +430,7 @@ theme = ExtResource("1_qkivj")
 theme_override_colors/default_color = Color(0.137255, 0.121569, 0.12549, 1)
 theme_override_fonts/normal_font = ExtResource("4_ny6f6")
 theme_override_font_sizes/normal_font_size = 32
-text = "Height and width in pixels. The default value "
+text = "A higher value corresponds to more water."
 fit_content = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/ColorRect/VBoxContainer"]
@@ -584,7 +438,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="width_input" type="LineEdit" parent="Panel/ColorRect/VBoxContainer/HBoxContainer"]
+[node name="waterHeight_text" type="LineEdit" parent="Panel/ColorRect/VBoxContainer/HBoxContainer"]
 clip_contents = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.137255, 0.121569, 0.12549, 1)
@@ -592,33 +446,15 @@ theme_override_colors/font_placeholder_color = Color(0.35543, 0.323759, 0.331657
 theme_override_colors/caret_color = Color(0.137255, 0.121569, 0.12549, 1)
 theme_override_fonts/font = ExtResource("4_ny6f6")
 theme_override_font_sizes/font_size = 41
-placeholder_text = "Width (px)"
+placeholder_text = "> Height"
+max_length = 4
 expand_to_text_length = true
+virtual_keyboard_type = 2
 flat = true
 caret_blink = true
 caret_mid_grapheme = true
 secret_character = "f"
-
-[node name="x_text" type="Label" parent="Panel/ColorRect/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 31
-text = " x "
-
-[node name="LineEdit2" type="LineEdit" parent="Panel/ColorRect/VBoxContainer/HBoxContainer"]
-clip_contents = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.137255, 0.121569, 0.12549, 1)
-theme_override_colors/font_placeholder_color = Color(0.35543, 0.323759, 0.331657, 1)
-theme_override_colors/caret_color = Color(0.137255, 0.121569, 0.12549, 1)
-theme_override_fonts/font = ExtResource("4_ny6f6")
-theme_override_font_sizes/font_size = 41
-placeholder_text = "Height (px)"
-expand_to_text_length = true
-flat = true
-caret_blink = true
-caret_mid_grapheme = true
-secret_character = "f"
+script = ExtResource("9_kpccu")
 
 [node name="Control2" type="Control" parent="Panel/ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
@@ -643,7 +479,7 @@ theme_override_font_sizes/normal_font_size = 32
 text = "If left blank, a random seed will be generated"
 fit_content = true
 
-[node name="LineEdit3" type="LineEdit" parent="Panel/ColorRect/VBoxContainer"]
+[node name="seedInput_text" type="LineEdit" parent="Panel/ColorRect/VBoxContainer"]
 clip_contents = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.137255, 0.121569, 0.12549, 1)
@@ -651,12 +487,13 @@ theme_override_colors/font_placeholder_color = Color(0.35543, 0.323759, 0.331657
 theme_override_colors/caret_color = Color(0.137255, 0.121569, 0.12549, 1)
 theme_override_fonts/font = ExtResource("4_ny6f6")
 theme_override_font_sizes/font_size = 41
-placeholder_text = "Enter your seed..."
+placeholder_text = "> Enter your seed..."
 expand_to_text_length = true
 flat = true
 caret_blink = true
 caret_mid_grapheme = true
 secret_character = "f"
+script = ExtResource("10_3t3er")
 
 [node name="Control3" type="Control" parent="Panel/ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
@@ -678,7 +515,7 @@ theme = ExtResource("1_qkivj")
 theme_override_colors/default_color = Color(0.137255, 0.121569, 0.12549, 1)
 theme_override_fonts/normal_font = ExtResource("4_ny6f6")
 theme_override_font_sizes/normal_font_size = 32
-text = "If left blank, a random seed will be generated"
+text = "Configuring these properties may increase in instability"
 fit_content = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel/ColorRect/VBoxContainer"]
@@ -686,7 +523,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="LineEdit" type="LineEdit" parent="Panel/ColorRect/VBoxContainer/HBoxContainer2"]
+[node name="noiseScale_text" type="LineEdit" parent="Panel/ColorRect/VBoxContainer/HBoxContainer2"]
 clip_contents = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.137255, 0.121569, 0.12549, 1)
@@ -694,20 +531,20 @@ theme_override_colors/font_placeholder_color = Color(0.35543, 0.323759, 0.331657
 theme_override_colors/caret_color = Color(0.137255, 0.121569, 0.12549, 1)
 theme_override_fonts/font = ExtResource("4_ny6f6")
 theme_override_font_sizes/font_size = 41
-placeholder_text = "Img. Scale"
+placeholder_text = "> Img. Scale"
 expand_to_text_length = true
 flat = true
 caret_blink = true
 caret_mid_grapheme = true
 secret_character = "f"
 
-[node name="Label2" type="Label" parent="Panel/ColorRect/VBoxContainer/HBoxContainer2"]
+[node name="Dash" type="Label" parent="Panel/ColorRect/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 31
 text = " - "
 
-[node name="LineEdit2" type="LineEdit" parent="Panel/ColorRect/VBoxContainer/HBoxContainer2"]
+[node name="octaves_text" type="LineEdit" parent="Panel/ColorRect/VBoxContainer/HBoxContainer2"]
 clip_contents = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.137255, 0.121569, 0.12549, 1)
@@ -722,13 +559,13 @@ caret_blink = true
 caret_mid_grapheme = true
 secret_character = "f"
 
-[node name="Label3" type="Label" parent="Panel/ColorRect/VBoxContainer/HBoxContainer2"]
+[node name="dash" type="Label" parent="Panel/ColorRect/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 31
 text = " - "
 
-[node name="LineEdit3" type="LineEdit" parent="Panel/ColorRect/VBoxContainer/HBoxContainer2"]
+[node name="lacunarity_text" type="LineEdit" parent="Panel/ColorRect/VBoxContainer/HBoxContainer2"]
 clip_contents = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.137255, 0.121569, 0.12549, 1)
@@ -742,28 +579,6 @@ flat = true
 caret_blink = true
 caret_mid_grapheme = true
 secret_character = "f"
-
-[node name="HeightScale_text" type="RichTextLabel" parent="Panel/ColorRect/VBoxContainer"]
-layout_mode = 2
-text = "Height Scale"
-fit_content = true
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/ColorRect/VBoxContainer"]
-modulate = Color(0, 0, 0, 0)
-layout_mode = 2
-text = "One corresponds with dramatic landscapes. | Zero corresponds to flat terrain.
-"
-fit_content = true
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Panel/ColorRect/VBoxContainer"]
-layout_mode = 2
-text = "Maximum Number of Cities"
-fit_content = true
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="Panel/ColorRect/VBoxContainer"]
-layout_mode = 2
-text = "This value will control how many cities appear on the generated terrain."
-fit_content = true
 
 [node name="Metroarrow_backdrop" type="Sprite2D" parent="Panel/ColorRect"]
 modulate = Color(0.576516, 0.088977, 0.0779086, 1)
@@ -803,7 +618,7 @@ texture = ExtResource("4_8c6rx")
 
 [node name="BlackCircle3" type="Sprite2D" parent="."]
 self_modulate = Color(0.72549, 0.2, 0.678431, 1)
-position = Vector2(112.425, 390.425)
+position = Vector2(112.425, 412.425)
 scale = Vector2(0.255566, 0.255566)
 texture = ExtResource("4_8c6rx")
 
@@ -823,7 +638,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BlackCircle4" type="Sprite2D" parent="."]
 self_modulate = Color(0, 0.576471, 0.235294, 1)
-position = Vector2(112.425, 655.425)
+position = Vector2(112.425, 677.425)
 scale = Vector2(0.255566, 0.255566)
 texture = ExtResource("4_8c6rx")
 
@@ -843,12 +658,17 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BlackCircle5" type="Sprite2D" parent="."]
 self_modulate = Color(0.988235, 0.8, 0.0392157, 1)
-position = Vector2(112.425, 930.425)
+position = Vector2(112.425, 952.425)
 scale = Vector2(0.255566, 0.255566)
 texture = ExtResource("4_8c6rx")
 
 [node name="Label" type="Label" parent="BlackCircle5"]
 modulate = Color(0, 0, 0, 1)
+anchors_preset = -1
+anchor_left = -0.000435561
+anchor_top = -1.56164e-05
+anchor_right = 0.0132363
+anchor_bottom = 0.0195156
 offset_left = -144.777
 offset_top = -179.992
 offset_right = 155.223
@@ -907,9 +727,9 @@ texture = ExtResource("10_yadut")
 [node name="numOfCities_text" type="Label" parent="."]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 1011.0
+offset_top = 1028.0
 offset_right = 2310.0
-offset_bottom = 1189.0
+offset_bottom = 1206.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("11_sol58")
 theme_override_font_sizes/font_size = 96
@@ -935,6 +755,38 @@ expand_icon = true
 wait_time = 5.0
 autostart = true
 
+[node name="MetroLine" type="Sprite2D" parent="."]
+modulate = Color(0.137255, 0.121569, 0.12549, 1)
+position = Vector2(547, 528)
+scale = Vector2(3.87952, 0.152778)
+texture = ExtResource("12_fi416")
+
+[node name="MetroLine2" type="Sprite2D" parent="."]
+modulate = Color(0.137255, 0.121569, 0.12549, 1)
+position = Vector2(547, 790)
+scale = Vector2(3.87952, 0.152778)
+texture = ExtResource("12_fi416")
+
+[node name="MetroLine3" type="Sprite2D" parent="."]
+modulate = Color(0.137255, 0.121569, 0.12549, 1)
+position = Vector2(547, 1052)
+scale = Vector2(3.87952, 0.152778)
+texture = ExtResource("12_fi416")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="closingTimer" type="Timer" parent="."]
+
+[connection signal="text_submitted" from="Panel/ColorRect/VBoxContainer/HBoxContainer/waterHeight_text" to="Panel/ColorRect/VBoxContainer/HBoxContainer/waterHeight_text" method="_on_text_submitted"]
+[connection signal="text_submitted" from="Panel/ColorRect/VBoxContainer/seedInput_text" to="Panel/ColorRect/VBoxContainer/seedInput_text" method="_on_text_submitted"]
 [connection signal="drag_ended" from="numOfCitiesSlider" to="." method="_on_test_slider_drag_ended"]
 [connection signal="value_changed" from="numOfCitiesSlider" to="." method="_on_test_slider_value_changed"]
 [connection signal="value_changed" from="numOfCitiesSlider" to="numOfCitiesSlider" method="_on_value_changed"]
@@ -942,3 +794,4 @@ autostart = true
 [connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="Panel/ColorRect/Instructions_anim" method="_on_timer_timeout"]
+[connection signal="timeout" from="closingTimer" to="." method="_on_closing_timer_timeout"]

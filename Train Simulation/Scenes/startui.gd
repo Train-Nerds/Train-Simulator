@@ -1,9 +1,15 @@
 extends Control
 
-@onready var my_slider := $VBoxContainer/testSlider
-@onready var my_start_button := $VBoxContainer/startButton
-@onready var cities_amt
-@onready var file = FileAccess.open(ProjectSettings.globalize_path("res://") + "settings.txt", FileAccess.READ_WRITE)
+#settings values
+@onready var cities_amt: int
+@onready var noiseSeed: int
+@onready var waterLevel: float
+@onready var noiseScale: int
+@onready var octaves: int
+@onready var lacunarity: int
+
+const SAVE_PATH: String = "res://Communication/settings.bin"
+#utility
 @onready var closing = false
 
 var Helvetica = preload("res://helvetica-255/Helvetica.ttf")
@@ -11,9 +17,9 @@ var defaultFontSize = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var img = Image.create(256, 256, false, Image.FORMAT_RGB8)
-	img.fill(Color.RED)
-	img.save_png("res://py_pics/saved_texture.png")
+	#var img = Image.create(256, 256, false, Image.FORMAT_RGB8)
+	#img.fill(Color.RED)
+	#img.save_png("res://py_pics/saved_texture.png")
 	$AnimationPlayer.play("OpeningAnimation") # Replace with function body.
 	
 
@@ -24,10 +30,62 @@ func _process(delta):
 
 func _on_start_button_pressed():
 	closing = true
-	$AnimationPlayer.play("OpeningAnimation", -1, 1.0, true)
+	
+#region Assigning Input Variables
+	cities_amt = int($numOfCitiesSlider.value)
+	
+	if($Panel/ColorRect/VBoxContainer/seedInput_text.text == ""):
+		noiseSeed = randi_range(0, 400)
+	else:
+		noiseSeed = int($Panel/ColorRect/VBoxContainer/seedInput_text.text)
+
+	if($Panel/ColorRect/VBoxContainer/HBoxContainer/waterHeight_text.text == ""):
+		waterLevel = -0.07
+	else:
+		waterLevel = float($Panel/ColorRect/VBoxContainer/HBoxContainer/waterHeight_text.text)
+	
+	if($Panel/ColorRect/VBoxContainer/HBoxContainer2/noiseScale_text.text == ""):
+		noiseScale = 200
+	else:
+		noiseScale = int($Panel/ColorRect/VBoxContainer/HBoxContainer2/noiseScale_text.text)
+	if($Panel/ColorRect/VBoxContainer/HBoxContainer2/octaves_text.text == ""):
+		octaves = 6
+	else:
+		octaves = int($Panel/ColorRect/VBoxContainer/HBoxContainer2/octaves_text.text)
+		
+	if($Panel/ColorRect/VBoxContainer/HBoxContainer2/lacunarity_text.text == ""):
+		lacunarity = 2.0
+	else:
+		lacunarity = float($Panel/ColorRect/VBoxContainer/HBoxContainer2/lacunarity_text.text)
+#endregion
+
+#region Writing to a File (.bin)	
+	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	
+	var information = {
+		cities_amt = self.cities_amt,
+		seed = self.noiseSeed,
+		waterLevel = self.waterLevel,
+		noiseScale = self.noiseScale,
+		octaves = self.octaves,
+		lacunarity = self.lacunarity
+	}
+	
+
+	var jstr = JSON.stringify(information)
+	file.store_line(jstr)
+	
+	$AnimationPlayer.play("closing_Animations")
+	
+	$closingTimer.start()
+#endregion
 
 
 
 func _on_timer_timeout():
 	if(not closing):
 		$AnimationPlayer.play("ScrollingText")
+
+
+func _on_closing_timer_timeout():
+	pass
