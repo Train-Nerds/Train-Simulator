@@ -8,7 +8,7 @@ extends Control
 @onready var octaves: int
 @onready var lacunarity: int
 
-const SAVE_PATH: String = "res://Communication/settings.bin"
+const SAVE_PATH: String = "res://Scenes/Communication/settings.bin"
 #utility
 @onready var closing = false
 
