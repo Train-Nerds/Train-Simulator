@@ -64,9 +64,6 @@ func generate_chunk(position):
 	
 
 
-
-
-
 # func _on_procedural_generation_red(red, x, y):
 	 # # Replace with function body.
 	# var tile_pos = local_to_map(position)
