@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjim4vb01wfu0"]
+
+[ext_resource type="Script" path="res://noise_read.gd" id="1_npivr"]
+[ext_resource type="Texture2D" uid="uid://flv5f62axxb2" path="res://Scenes/img_test.jpg" id="3_np31j"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_npivr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(512, 512)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_np31j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(512, 512)
+zoom = Vector2(0.5, 0.5)
