@@ -8,5 +8,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$VBoxContainer/HBoxContainer/ProgressBar.value += 0.05 
+	$VBoxContainer/HBoxContainer/LoadingBar.value += 0.05 
 

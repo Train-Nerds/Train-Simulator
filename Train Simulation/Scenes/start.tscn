@@ -771,7 +771,6 @@ scale = Vector2(3.87952, 0.152778)
 texture = ExtResource("12_fi416")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -782,6 +781,7 @@ mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
 [node name="closingTimer" type="Timer" parent="."]
+wait_time = 1.2
 
 [connection signal="text_submitted" from="Panel/ColorRect/VBoxContainer/HBoxContainer/waterHeight_text" to="Panel/ColorRect/VBoxContainer/HBoxContainer/waterHeight_text" method="_on_text_submitted"]
 [connection signal="text_submitted" from="Panel/ColorRect/VBoxContainer/seedInput_text" to="Panel/ColorRect/VBoxContainer/seedInput_text" method="_on_text_submitted"]

@@ -43,7 +43,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_3yja7")
 theme_override_font_sizes/font_size = 111
-value = 17.05
 script = ExtResource("3_lhqv6")
 
 [connection signal="value_changed" from="ColorRect/VBoxContainer/HBoxContainer/LoadingBar" to="ColorRect" method="_on_loading_bar_value_changed"]

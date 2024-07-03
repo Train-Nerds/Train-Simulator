@@ -8,6 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	value /= 100.0
-	self.color = Color(1 * value, .5 * value, .5 * value)
-	print(self.color)
+	#value /= 100.0
+	#self.bg_color = Color(1 * value, .5 * value, .5 * value)
+	#print(self.color)
+	pass
