@@ -8,6 +8,10 @@ extends Control
 @onready var octaves: int
 @onready var lacunarity: int
 
+var mouseArrow = load("res://UISprite/minimal-gear-pack.png")
+var mouseOther = load("res://UISprite/gearMouse.png")
+
+
 const SAVE_PATH: String = "res://Scenes/Communication/settings.bin"
 #utility
 @onready var closing = false
@@ -17,6 +21,9 @@ var defaultFontSize = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Input.set_custom_mouse_cursor(mouseArrow)
+	#Input.set_custom_mouse_cursor(mouseOther, Input.CURSOR_IBEAM)
+	#Input.set_custom_mouse_cursor(mouseOther, Input.CURSOR_BUSY)
 	#var img = Image.create(256, 256, false, Image.FORMAT_RGB8)
 	#img.fill(Color.RED)
 	#img.save_png("res://py_pics/saved_texture.png")
@@ -88,4 +95,5 @@ func _on_timer_timeout():
 
 
 func _on_closing_timer_timeout():
-	pass
+	get_tree().change_scene_to_file("res://Scenes/loadingScreen.tscn")
+
