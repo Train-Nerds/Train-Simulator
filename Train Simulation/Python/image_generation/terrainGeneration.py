@@ -202,8 +202,8 @@ def prep_world(world):
 #importing settings from Godot
 
 # COMMENT OUT 205 FOR VSCODE, WHEN USING COMMAND PROMPT, COMMENT ABOUT 206
-thisPath = os.getcwd()
-#thisPath = os.getcwd() + "\\Desktop\\Documents\\GitHub\\Train-Simulator\\Train Simulation\\Python\\image_generation"
+#thisPath = os.getcwd()
+thisPath = os.getcwd() + "\\Desktop\\Documents\\GitHub\\Train-Simulator\\Train Simulation\\Python\\image_generation"
 
 loadingFile = open(os.path.abspath(os.path.join(thisPath, os.pardir)) + "\\loadingCommunication.txt", "w")
 loadingFile.write("")
