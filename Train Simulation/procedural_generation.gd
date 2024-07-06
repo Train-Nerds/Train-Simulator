@@ -1,4 +1,5 @@
 extends Node2D
+
 ###tilemap reading
 #
 #@onready var map = $noise_map.texture.get_image()
@@ -6,10 +7,12 @@ extends Node2D
 #@onready var height = map.get_height()
 ###@onready var player = get_parent().get_child(1)
 #
+
 #signal red
 #signal green
 #signal blue
 #signal alpha
+
 #
 ## Called when the node enters the scene tree for the first time.
 #func _ready():
@@ -25,6 +28,8 @@ extends Node2D
 			#var alpha_color = map.get_pixel(x,y)[3]
 #
 #
+
+
 			#emit_signal("red", red_color*255, x, y)
 			#emit_signal("green", green_color*255, x, y)
 			#emit_signal("blue", blue_color*255, x, y)
@@ -42,3 +47,9 @@ extends Node2D
 #
 #func generate_chunk(position):
 	#pass
+=======
+
+			#print(pixel_color * 255)
+
+	##generate_chunk(player.position)
+	
