@@ -64,6 +64,7 @@ func _on_procedural_generation_red(red, x, y):
 	if red > 0:
 		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(round(red/63.75),round(red/63.75)))
 
+
 func _on_procedural_generation_green(green, x, y):
 	var tile_pos = local_to_map(position)
 	if green > 0:
@@ -76,4 +77,5 @@ func _on_procedural_generation_blue(blue, x, y):
 func _on_procedural_generation_alpha(alpha, x, y):
 	if alpha > 1:
 		pass
+
 
