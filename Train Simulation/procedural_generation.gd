@@ -7,10 +7,10 @@ extends Node2D
 @onready var height = map.get_height()
 ##@onready var player = get_parent().get_child(1)
 
-#signal red
-#signal green
-#signal blue
-#signal alpha
+signal red
+signal green
+signal blue
+signal alpha
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
