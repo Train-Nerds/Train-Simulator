@@ -7,9 +7,13 @@ func to_rgb(x: Image) -> Image:
 
 func find_cities(x: PackedByteArray) -> PackedVector2Array:
 	var cities: PackedVector2Array = [];
-	for i in x.size():
-		# RGB = [0, 1, 2] => 3 elements; 3*i gets pixel at i, +1 gets G byte.
-		if x.decode_s8(3*i+1) == 255: cities.append(Vector2(i, 0));
+	var i = 0;
+	var j = 0
+	for byte in x:
+		if j == 1: if byte as int > 0: cities.append(Vector2(i, 0));
+		if j == 2: j = 0;
+		else: j += 1;
+		i += 1;
 	return cities
 
 func index_to_coords(columns: int, i: int) -> Vector2:
@@ -25,13 +29,18 @@ func compute_center(coordinate_pairs: PackedVector2Array) -> Vector2:
 	center /= amount;
 	return center
 
-func linear_reduce_average_deviation(input_set: Array):
+func linear_reduce_average_deviation(input_set: Array) -> Array:
 	var output := [];
 	var size = input_set.size();
 	for i in range(size):
-		for j in range(i, size):
-			
-			
+		for j in range(i+1, size):
+			output.append((input_set[i] + input_set[j]) / 2)
+	return output
+
+func vec_max(a: Vector2, b: Vector2) -> Vector2:
+	var _max: Vector2 = a;
+	if b > a: _max = b;
+	return _max;
 
 func _ready():
 	var image: Image = to_rgb(Image.load_from_file("res://heightmapR.png"));
@@ -40,12 +49,20 @@ func _ready():
 		cities[i] = index_to_coords(image.get_width(), cities[i][0]);
 	var center: Vector2 = compute_center(cities);
 	
-	var deviations: Array = cities.map(func(city: Vector2):
-		return (city - center));
-	var maximum_deviation = deviations.reduce(func(accum, vec: Vector2):
-		return max(accum, vec));
+	var deviations: Array = cities.map(func(city: Vector2): return (city - center));
+	var maximum_deviation: Vector2 = deviations.reduce(func(accum, vec: Vector2): return vec_max(accum, vec));
 	
+	var foo: Array = [];
+	for i in range(deviations.size()):
+		var cur: Vector2 = deviations[i];
+		var r = sqrt(cur[0]**2 + cur[1]**2);
+		foo.append(Vector2(r, i));
+	foo.sort_custom(func(a: Vector2, b: Vector2): return b > a);
 	
+	var branches: int = ceil(cities.size() as float / 2);
+	
+	#print(deviations)
+	print(maximum_deviation)
 
 func _process(delta):
 	pass
