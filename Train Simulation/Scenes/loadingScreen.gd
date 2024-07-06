@@ -1,10 +1,13 @@
 extends Control
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	OS.execute("CMD.exe", ["/C", "python " + ProjectSettings.globalize_path("res://Python/image_generation/") + "terrainGeneration.py"])
-	print("executing")
+	#print("C:/Python311/python.exe " + "\"" + ProjectSettings.globalize_path("res://Python/image_generation/") + "terrainGeneration.py" + "\"")
+	#print(OS.execute("C:/Python311/python.exe", [ProjectSettings.globalize_path("res://Python/image_generation/") + "terrainGeneration.py"]))
+	#OS.create_process("CMD.exe", ["/C", "C:/Python311/python.exe " + ProjectSettings.globalize_path("res://Python/image_generation/") + "terrainGeneration.py"])
+	#print("executing")
+	
+	OS.create_process("c:\\winnt\\system32\\cmd.exe", [])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
