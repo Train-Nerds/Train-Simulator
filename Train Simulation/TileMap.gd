@@ -11,7 +11,7 @@ var maximum = 500000
 @onready var heightmap = Image.create(width, height, false, Image.FORMAT_RGBA8)
 @onready var player = $"../player"
 @onready var tile_pos = local_to_map(position)
-@onready var map = $noise_map.texture.get_image()
+@onready var map = $"../noise_map".texture.get_image()
 
 
 
@@ -24,7 +24,7 @@ func _ready():
 	for x in range(height):
 		for y in range(width):
 			##format is RGBA
-			write_r(map.get_pixel(x,y)[0], x, y)
+			write_r((map.get_pixel(x,y)[0])*255, x, y)
 			write_g(map.get_pixel(x,y)[1], x, y)
 			write_b(map.get_pixel(x,y)[2], x, y)
 			write_a(map.get_pixel(x,y)[3], x, y)
