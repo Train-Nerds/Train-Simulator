@@ -259,30 +259,30 @@ texture_region_size = Vector2i(17, 17)
 sources/0 = SubResource("TileSetAtlasSource_tpmwh")
 sources/1 = SubResource("TileSetAtlasSource_dvrmg")
 
-[node name="TileMap" type="TileMap"]
-tile_set = SubResource("TileSet_v2mjm")
-format = 2
-script = ExtResource("2_ltu6j")
-
-[node name="ProceduralGeneration" type="Node2D" parent="."]
+[node name="ProceduralGeneration" type="Node2D"]
 script = ExtResource("4_q5pv3")
 
-[node name="Camera2D" type="Camera2D" parent="ProceduralGeneration"]
+[node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(512, 512)
 zoom = Vector2(0.05, 0.05)
 
-[node name="noise_map" type="TextureRect" parent="ProceduralGeneration"]
+[node name="noise_map" type="TextureRect" parent="."]
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_pqjxq")
 
-[node name="player" type="Sprite2D" parent="ProceduralGeneration"]
+[node name="player" type="Sprite2D" parent="."]
 position = Vector2(502, 484)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_wfnk8")
 
-[connection signal="alpha" from="ProceduralGeneration" to="." method="_on_procedural_generation_alpha"]
-[connection signal="blue" from="ProceduralGeneration" to="." method="_on_procedural_generation_blue"]
-[connection signal="green" from="ProceduralGeneration" to="." method="_on_procedural_generation_green"]
-[connection signal="red" from="ProceduralGeneration" to="." method="_on_procedural_generation_red"]
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_v2mjm")
+format = 2
+script = ExtResource("2_ltu6j")
+
+[connection signal="alpha" from="." to="TileMap" method="_on_procedural_generation_alpha"]
+[connection signal="blue" from="." to="TileMap" method="_on_procedural_generation_blue"]
+[connection signal="green" from="." to="TileMap" method="_on_procedural_generation_green"]
+[connection signal="red" from="." to="TileMap" method="_on_procedural_generation_red"]
