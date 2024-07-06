@@ -47,7 +47,6 @@ extends Node2D
 #
 #func generate_chunk(position):
 	#pass
-=======
 
 			#print(pixel_color * 255)
 
