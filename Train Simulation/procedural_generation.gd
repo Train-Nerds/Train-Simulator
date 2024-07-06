@@ -25,11 +25,13 @@ func _ready():
 			var green = map.get_pixel(x,y)[1]
 			var blue = map.get_pixel(x,y)[2]
 			var alpha = map.get_pixel(x,y)[3]
-			##emit_signal("red", red*255, x, y)
-			##emit_signal("green", green*255, x, y)
-			##emit_signal("blue", blue*255, x, y)
-			##emit_signal("alpha", alpha*255, x, y)
-			##print(pixel_color * 255)
+
+			emit_signal("red", red*255, x, y)
+			emit_signal("green", green*255, x, y)
+			emit_signal("blue", blue*255, x, y)
+			emit_signal("alpha", alpha*255, x, y)
+			#print(pixel_color * 255)
+
 	##generate_chunk(player.position)
 	
 	

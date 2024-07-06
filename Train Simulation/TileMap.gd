@@ -36,9 +36,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	##print("Max: " + str(maximum) + ", Min: " + str(minimum))
 
 
 func generate_chunk(position):
@@ -72,10 +69,12 @@ func generate_chunk(position):
 	##var tile_pos = local_to_map(position)
 	##if green > 0:
 		##set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
-		
-##func _on_procedural_generation_blue(blue, x, y):
-	##var tile_pos = local_to_map(position)
-	##if blue > 0:
-		##set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(3,2))
-##func _on_procedural_generation_alpha(alpha, x, y):
-	##pass # Replace with function body.
+    
+func _on_procedural_generation_blue(blue, x, y):
+	var tile_pos = local_to_map(position)
+	if blue > 0:
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(3,2))
+func _on_procedural_generation_alpha(alpha, x, y):
+	if alpha > 1:
+		pass
+
