@@ -12,7 +12,7 @@ var mouseArrow = load("res://UISprite/minimal-gear-pack.png")
 var mouseOther = load("res://UISprite/gearMouse.png")
 
 
-const SAVE_PATH: String = "res://Scenes/Communication/settings.bin"
+const SAVE_PATH: String = "res://Python//image_generation//settings.bin"
 #utility
 @onready var closing = false
 

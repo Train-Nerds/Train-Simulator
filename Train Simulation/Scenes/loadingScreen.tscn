@@ -1,8 +1,109 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2hv3xnb0xskd"]
+[gd_scene load_steps=8 format=3 uid="uid://b2hv3xnb0xskd"]
 
+[ext_resource type="Script" path="res://Scenes/loadingScreen.gd" id="1_ce023"]
 [ext_resource type="Script" path="res://Scenes/ColorRect.gd" id="1_pdoa0"]
 [ext_resource type="FontFile" uid="uid://dl4um7ynrmw5m" path="res://helvetica-255/helvetica-rounded-bold-5871d05ead8de.otf" id="2_3yja7"]
 [ext_resource type="Script" path="res://Scenes/LoadingBar.gd" id="3_lhqv6"]
+
+[sub_resource type="Animation" id="Animation_ogpy3"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/ColorRect:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/ColorRect:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/ColorRect:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/ColorRect:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_hqb10"]
+resource_name = "closing_animation"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/ColorRect:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/ColorRect:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/ColorRect:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/ColorRect:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tokhx"]
+_data = {
+"RESET": SubResource("Animation_ogpy3"),
+"closing_animation": SubResource("Animation_hqb10")
+}
 
 [node name="LoadingScreen" type="Control"]
 layout_mode = 3
@@ -11,6 +112,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ce023")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -22,9 +124,12 @@ grow_vertical = 2
 script = ExtResource("1_pdoa0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Control" type="Control" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(152, 450)
@@ -32,10 +137,7 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
-
-[node name="Control" type="Control" parent="ColorRect/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(152, 0)
-layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="LoadingBar" type="ProgressBar" parent="ColorRect/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(2000, 0)
@@ -45,4 +147,38 @@ theme_override_fonts/font = ExtResource("2_3yja7")
 theme_override_font_sizes/font_size = 111
 script = ExtResource("3_lhqv6")
 
-[connection signal="value_changed" from="ColorRect/VBoxContainer/HBoxContainer/LoadingBar" to="ColorRect" method="_on_loading_bar_value_changed"]
+[node name="Control2" type="Control" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(1.24, 51.25)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_3yja7")
+theme_override_font_sizes/font_size = 116
+text = "Loading..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="closingTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tokhx")
+}
+
+[connection signal="value_changed" from="ColorRect/VBoxContainer/HBoxContainer/LoadingBar" to="." method="_on_loading_bar_value_changed"]
+[connection signal="timeout" from="closingTimer" to="." method="_on_closing_timer_timeout"]
