@@ -18,6 +18,7 @@ var maximum = 500000
 @onready var train_stop2 = $"../White Circle3"
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#signal testing, should communicate with noise_read.gd
