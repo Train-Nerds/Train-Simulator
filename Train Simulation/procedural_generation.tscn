@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://8ek6ugshotww"]
 
 [ext_resource type="Texture2D" uid="uid://kkn8iuflhoe6" path="res://tiles2.png" id="1_jdwgp"]
+[ext_resource type="Texture2D" uid="uid://b3ik6brp6lfvc" path="res://heightmapRA.png" id="2_cfn2j"]
 [ext_resource type="Script" path="res://TileMap.gd" id="2_ltu6j"]
 [ext_resource type="Texture2D" uid="uid://by3qymw3l3qkt" path="res://tiles2-1.png.png" id="3_x5xld"]
 [ext_resource type="Script" path="res://procedural_generation.gd" id="4_q5pv3"]
-[ext_resource type="Texture2D" uid="uid://dymfbvby3cxqs" path="res://heightmapR.png" id="5_pqjxq"]
 [ext_resource type="Texture2D" uid="uid://flv5f62axxb2" path="res://Scenes/img_test.jpg" id="6_wfnk8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tpmwh"]
@@ -267,10 +267,9 @@ offset = Vector2(512, 512)
 zoom = Vector2(0.05, 0.05)
 
 [node name="noise_map" type="TextureRect" parent="."]
-visible = false
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("5_pqjxq")
+texture = ExtResource("2_cfn2j")
 
 [node name="player" type="Sprite2D" parent="."]
 position = Vector2(502, 484)
