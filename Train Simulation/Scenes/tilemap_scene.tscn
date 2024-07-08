@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/map_generator.gd" id="2_f81y8"]
 [ext_resource type="Texture2D" uid="uid://flv5f62axxb2" path="res://Scenes/img_test.jpg" id="3_jfhcs"]
 [ext_resource type="Texture2D" uid="uid://kkjiwrql3ogo" path="res://tst.png" id="4_equwf"]
-[ext_resource type="Texture2D" uid="uid://bqwbhc4fiy5id" path="res://trainicon.png" id="5_e0hq0"]
+[ext_resource type="Texture2D" uid="uid://bqwbhc4fiy5id" path="res://trainicon.png" id="5_nm6rd"]
 [ext_resource type="Texture2D" uid="uid://dmqat4jgmi50" path="res://Scenes/sigmaCircle.png" id="6_wrbo5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fdqbd"]
@@ -30,113 +30,260 @@ texture = ExtResource("1_uk4el")
 tile_size = Vector2i(1, 1)
 sources/1 = SubResource("TileSetAtlasSource_fdqbd")
 
-[node name="TrainMap" type="TileMap"]
+[node name="Node2D" type="Node2D"]
+
+[node name="TrainMap" type="TileMap" parent="."]
 position = Vector2(500, 500)
 tile_set = SubResource("TileSet_0mjy0")
 rendering_quadrant_size = 1
 format = 2
 script = ExtResource("2_f81y8")
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="player" type="Sprite2D" parent="."]
-visible = false
+[node name="TileMapLocation1" type="Sprite2D" parent="TrainMap"]
 z_index = 1
 position = Vector2(500, 500)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_jfhcs")
 
-[node name="heightmap" type="TextureRect" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="heightmap" type="TextureRect" parent="TrainMap/TileMapLocation1"]
+offset_left = -5000.0
+offset_top = -5000.0
+offset_right = -4000.0
+offset_bottom = -4000.0
 texture = ExtResource("4_equwf")
 
-[node name="train" type="Sprite2D" parent="."]
+[node name="train" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
 z_index = 2
-position = Vector2(382.291, 427.689)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_e0hq0")
+position = Vector2(-1177.09, -723.11)
+scale = Vector2(2, 2)
+texture = ExtResource("5_nm6rd")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="1stTileCam" type="Camera2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(10, 10)
 offset = Vector2(500, 500)
 
-[node name="trainStop0" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop0" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop1" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop1" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop2" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop2" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop3" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop3" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop4" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop4" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop5" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop5" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop6" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop6" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop7" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop7" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop8" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop8" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop9" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop9" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop10" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop10" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop11" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop11" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop12" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop12" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop13" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop13" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop14" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop14" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop15" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop15" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop16" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop16" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop17" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop17" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop18" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop18" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
 
-[node name="trainStop19" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+[node name="trainStop19" type="Sprite2D" parent="TrainMap/TileMapLocation1"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_wrbo5")
+
+[node name="TileMapLocation2" type="Sprite2D" parent="TrainMap"]
+visible = false
+z_index = 1
+position = Vector2(3000, 500)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_jfhcs")
+
+[node name="heightmap2" type="TextureRect" parent="TrainMap/TileMapLocation2"]
+offset_left = -710.0
+offset_top = -3540.0
+offset_right = 290.0
+offset_bottom = -2540.0
+texture = ExtResource("4_equwf")
+
+[node name="2ndTileCam" type="Camera2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-30000, -5000)
+scale = Vector2(10, 10)
+offset = Vector2(3000, 500)
+
+[node name="trainStop0" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop1" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop2" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop3" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop4" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop5" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop6" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop7" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop8" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop9" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop10" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop11" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop12" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop13" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop14" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop15" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop16" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop17" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop18" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop19" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+position = Vector2(-5000, -5000)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_wrbo5")
+
+[node name="train2" type="Sprite2D" parent="TrainMap/TileMapLocation2"]
+z_index = 2
+position = Vector2(-26177.1, -723.11)
+scale = Vector2(2, 2)
+texture = ExtResource("5_nm6rd")
