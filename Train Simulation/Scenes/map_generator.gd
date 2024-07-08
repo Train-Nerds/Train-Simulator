@@ -34,7 +34,7 @@ func _ready():
 			if(map.get_pixel(x,y)[1] > 0):
 				coordinates.append(Vector2(x,y))
 			##format is RGBA
-			write_r((map.get_pixel(x,y)[0])*255, x, y)
+			write_r((map.get_pixel(x,y)[0]), x, y)
 			write_g(map.get_pixel(x,y)[1], x, y, coordinates)
 			write_b(map.get_pixel(x,y)[2], x, y)
 			write_a(map.get_pixel(x,y)[3], x, y)
@@ -59,26 +59,32 @@ func _ready():
 	
 func write_r(red, x, y):
 	if red > 0:
-		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(round(red/63.75),round(red/63.75)))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 1, Vector2i(2,round(red*4)))
 
 func write_g(green, x, y, coordinates):
 	if green > 0:
-		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 1, Vector2i(1,1))
 		
 
 		
 func write_b(blue, x, y):
 	
 	if blue > 0:
-		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(3,2))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 1, Vector2i(3,2))
 func write_a(alpha, x, y):
 	if alpha < 1:
 
 
-
-		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
-
-
+#redundancy makes lines thicker, like a 3x3 grid
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x + 1, tile_pos.y-height/2 + y - 1), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x - 1, tile_pos.y-height/2 + y + 1), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x + 2, tile_pos.y-height/2 + y - 2), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x - 2, tile_pos.y-height/2 + y + 2), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x + 2, tile_pos.y-height/2 + y + 2), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x + 1, tile_pos.y-height/2 + y + 1), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x - 2, tile_pos.y-height/2 + y - 2), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x - 1, tile_pos.y-height/2 + y - 1), 1, Vector2i(0,0))
 var previous_position = Vector2(-1,-1)
 var movement_active = true
 var velocity = 10
@@ -93,7 +99,7 @@ func _process(delta):
 				if (pixel_color.a < 1 and previous_position != new_position):
 					previous_position = rectangle.position
 					rectangle.position = new_position
-					print(previous_position, rectangle.position)
+					#print(previous_position, rectangle.position)
 					moved = true
 					break
 			if moved:
