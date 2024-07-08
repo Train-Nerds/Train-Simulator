@@ -56,13 +56,23 @@ func path(a: Vector2, b: Vector2, image: Image) -> Image:
 	var head = b;
 	var is_y: bool = false;
 	while(head != a):
+		var color: Color = image.get_pixelv(head);
+		var h_height = color[0];
+		var x_grad = abs(h_height - image.get_pixelv(head + Vector2(dxdy[0], 0))[0]);
+		var y_grad = abs(h_height - image.get_pixelv(head + Vector2(0, dxdy[1]))[0]);
+		is_y = y_grad <= x_grad and dxdy[1] as bool or not dxdy[0] as bool;
 		var turn = is_y as int;
+		
+		# look ahead and see if there is water
+		if image.get_pixelv(head + dxdy[turn])[2] > 0:
+			var river = image.get_pixelv(head + 3*dxdy[turn])[2] == 0;
+		# if there is a river, cross it.
+		# if there is a lake, go around
+		
 		head[turn] += dxdy[turn];
 		if (a-head)[turn] == 0: dxdy[turn] = 0;
-		var color: Color = image.get_pixelv(head);
 		color[3] = 0;
 		image.set_pixelv(head, color);
-		is_y = not is_y;
 	return image;
 
 func get_point_out_of_water(point: Vector2, image: Image) -> Vector2:
@@ -79,29 +89,35 @@ func get_point_out_of_water(point: Vector2, image: Image) -> Vector2:
 			min_p = land_pixels[i];
 	return min_p;
 
+func pythag_center(points: Array) -> Vector2:
+	var sum = Vector2(0, 0);
+	for v in points:
+		sum[0] += v[0]**2;
+		sum[1] += v[1]**2;
+	sum[0] = roundi(sqrt(sum[0]))
+	sum[1] = roundi(sqrt(sum[1]))
+	return sum
 
 func run(input_path: String, output_path: String) -> Image:
 	var image: Image = copy_to_rgba(Image.load_from_file(input_path));
 	var cities: Array = find_cities(image);
-	var center: Vector2 = compute_center(cities);
+	var center: Vector2 = pythag_center(cities);
 	
 	var deviations: Array = cities.map(func(city: Vector2): return (city - center));
 	var maximum_deviation: Vector2 = deviations.reduce(func(accum, vec: Vector2): return vec_max(accum, vec));
 	
 	center = get_point_out_of_water(center, image);
-	
 	for city in cities:
 		image = path(center, city, image);
 		var color = image.get_pixelv(city);
 		color[3] = 255;
-		image.set_pixelv(city, color);
-		
+		image.set_pixelv(city, color);	
 	image.save_png(output_path);
 	
 	return image;
 
 func _ready():
-	#run("res://Scenes/Input_Image.png", "user://proceduralRailOutput.png")
+	run("res://Scenes/Input_Image.png", "/home/pin/output.png")
 	pass
 	
 func _process(delta):
