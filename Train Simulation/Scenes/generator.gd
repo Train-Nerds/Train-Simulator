@@ -101,11 +101,7 @@ func run(input_path: String, output_path: String) -> Image:
 	return image;
 
 func _ready():
-<<<<<<< HEAD
-	run("res://Scenes/Input_Image.png", "/home/pin/output.png");
-=======
 	#run("res://Scenes/Input_Image.png", "user://proceduralRailOutput.png")
->>>>>>> b946a0a95f4352b1cea66d8ded21c34a26f76589
 	pass
 	
 func _process(delta):
