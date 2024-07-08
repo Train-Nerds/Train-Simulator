@@ -66,7 +66,7 @@ func path(a: Vector2, b: Vector2, image: Image) -> Image:
 
 
 func _ready():
-	var image: Image = copy_to_rgba(Image.load_from_file("res://Python/Input_Image.png"));
+	var image: Image = copy_to_rgba(Image.load_from_file("res://informationMap.png"));
 	var cities: Array = find_cities(image);
 	var center: Vector2 = compute_center(cities);
 	
@@ -85,7 +85,7 @@ func _ready():
 		image = path(center, city, image);
 	
 	
-	image.save_png("/home/pin/output.png")
+	image.save_png(ProjectSettings.globalize_path("user://") + "proceduralRailOutput.png")
 	
 	#print(cities)
 	#print(center)
