@@ -26,21 +26,25 @@ var maximum = 500000
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#signal testing, should communicate with noise_read.gd
-
 	print(width, height)
 	map.convert(Image.FORMAT_RGBA8)
 	print(map.get_pixel(1,1))
-	rectangle.position.x = 352
-	rectangle.position.y = 603
+	var coordinates = []
+	#print(rectangle.position)
 	for x in range(height):
 		for y in range(width):
+			#getting green pixels, adding to coord vector
+			if(map.get_pixel(x,y)[1] > 0):
+				coordinates.append(Vector2(x,y))
 			##format is RGBA
 			write_r((map.get_pixel(x,y)[0])*255, x, y)
 			write_g(map.get_pixel(x,y)[1], x, y)
 			write_b(map.get_pixel(x,y)[2], x, y)
 			write_a(map.get_pixel(x,y)[3], x, y)
-			
-			
+	rectangle.position.x = coordinates[0][0]
+	rectangle.position.y = coordinates[0][1]
+	print(coordinates)
+	print(rectangle.position)
 	altitude.seed = randi()
 	##generate_chunk(player.position)
 	
@@ -73,18 +77,30 @@ func write_b(blue, x, y):
 func write_a(alpha, x, y):
 	if alpha < 1:
 
+
+
 		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
 
 
+var previous_position = Vector2(-1,-1)
+var movement_active = false
 func _process(delta):
-	#reads each pixel in img
-	for x in range(height):
-		for y in range(width):
-			##format is RGBA
-			write_r((map.get_pixel(x,y)[0])*255, x, y)
-			write_g(map.get_pixel(x,y)[1], x, y)
-			write_b(map.get_pixel(x,y)[2], x, y)
-			write_a(map.get_pixel(x,y)[3], x, y)
-				
-	
-	
+	if Input.is_action_just_pressed("ui_select"):
+		movement_active = true
+	elif movement_active:
+		var moved = false
+		var target_position = null
+		for x in range(int(rectangle.position.x) - 1, int(rectangle.position.x) + 2):
+			for y in range(int(rectangle.position.y) - 1, int(rectangle.position.y) + 2):
+				var pixel_color = map.get_pixel(x, y)
+				if(pixel_color.a < 1):
+					target_position = Vector2(x,y)
+					break
+			if target_position != null:
+				break
+		if target_position != null:
+			var move_distance = 100 * delta
+			var direction = (target_position - rectangle.position).normalized()
+			rectangle.position += direction * move_distance
+			print(rectangle.position)
+			moved = true
