@@ -1,14 +1,14 @@
 [gd_scene load_steps=9 format=3 uid="uid://bifgkfvxlqwkf"]
 
-[ext_resource type="Texture2D" uid="uid://kkn8iuflhoe6" path="res://tiles2.png" id="1_s5htj"]
+[ext_resource type="Texture2D" uid="uid://bpdhmsqthhelw" path="res://trainerds_tilemap.png" id="1_uk4el"]
 [ext_resource type="Script" path="res://Scenes/map_generator.gd" id="2_f81y8"]
 [ext_resource type="Texture2D" uid="uid://flv5f62axxb2" path="res://Scenes/img_test.jpg" id="3_jfhcs"]
-[ext_resource type="Texture2D" uid="uid://bie1irtfou2gi" path="res://heightmapSimple.png" id="4_l3tlr"]
-[ext_resource type="Texture2D" uid="uid://bqpyaxxsll2gm" path="res://circle-512.png" id="5_p2h4n"]
-[ext_resource type="Texture2D" uid="uid://xjode8h8xkuo" path="res://rect.png" id="6_w5hvs"]
+[ext_resource type="Texture2D" uid="uid://kkjiwrql3ogo" path="res://tst.png" id="4_equwf"]
+[ext_resource type="Texture2D" uid="uid://bqwbhc4fiy5id" path="res://trainicon.png" id="5_e0hq0"]
+[ext_resource type="Texture2D" uid="uid://dmqat4jgmi50" path="res://Scenes/sigmaCircle.png" id="6_wrbo5"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kt0c7"]
-texture = ExtResource("1_s5htj")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fdqbd"]
+texture = ExtResource("1_uk4el")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -28,7 +28,7 @@ texture = ExtResource("1_s5htj")
 
 [sub_resource type="TileSet" id="TileSet_0mjy0"]
 tile_size = Vector2i(1, 1)
-sources/0 = SubResource("TileSetAtlasSource_kt0c7")
+sources/1 = SubResource("TileSetAtlasSource_fdqbd")
 
 [node name="TrainMap" type="TileMap"]
 position = Vector2(500, 500)
@@ -40,6 +40,7 @@ script = ExtResource("2_f81y8")
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="player" type="Sprite2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(500, 500)
 scale = Vector2(0.1, 0.1)
@@ -49,19 +50,93 @@ texture = ExtResource("3_jfhcs")
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("4_l3tlr")
+texture = ExtResource("4_equwf")
 
-[node name="trainStop" type="TextureRect" parent="."]
-offset_right = 512.0
-offset_bottom = 512.0
-scale = Vector2(0.114206, 0.113499)
-texture = ExtResource("5_p2h4n")
-
-[node name="rectangle" type="Sprite2D" parent="."]
+[node name="train" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(376, 433)
-scale = Vector2(0.00918733, 0.00765299)
-texture = ExtResource("6_w5hvs")
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_e0hq0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(500, 500)
+
+[node name="trainStop0" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop1" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop2" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop3" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop4" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop5" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop6" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop7" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop8" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop9" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop10" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop11" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop12" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop13" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop14" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop15" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop16" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop17" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop18" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")
+
+[node name="trainStop19" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wrbo5")

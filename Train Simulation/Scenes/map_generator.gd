@@ -14,9 +14,10 @@ var maximum = 500000
 @onready var tile_pos = local_to_map(position)
 @onready var map = $"heightmap".texture.get_image()
 
-@onready var train_stop = $train_stop
-@onready var rectangle = $rectangle
-
+@onready var train_stop = $trainStop
+@onready var train = $train
+@onready var train_stops_coords = []
+@onready var sprites = [$trainStop0,$trainStop1,$trainStop2, $trainStop3, $trainStop4, $trainStop5, $trainStop6, $trainStop7, $trainStop8, $trainStop9, $trainStop10, $trainStop11, $trainStop12, $trainStop13, $trainStop14, $trainStop15, $trainStop16, $trainStop17, $trainStop18, $trainStop19]
 
 
 
@@ -25,7 +26,6 @@ func _ready():
 	#signal testing, should communicate with noise_read.gd
 	print(width, height)
 	map.convert(Image.FORMAT_RGBA8)
-	print(map.get_pixel(1,1))
 	var coordinates = []
 	#print(rectangle.position)
 	for x in range(height):
@@ -34,16 +34,20 @@ func _ready():
 			if(map.get_pixel(x,y)[1] > 0):
 				coordinates.append(Vector2(x,y))
 			##format is RGBA
-			write_r((map.get_pixel(x,y)[0])*255, x, y)
-			write_g(map.get_pixel(x,y)[1], x, y)
+			write_r((map.get_pixel(x,y)[0]), x, y)
+			write_g(map.get_pixel(x,y)[1], x, y, coordinates)
 			write_b(map.get_pixel(x,y)[2], x, y)
 			write_a(map.get_pixel(x,y)[3], x, y)
-	rectangle.position.x = coordinates[0][0]
-	rectangle.position.y = coordinates[0][1]
-	#for x in range(coordinates.size()):
-		#for y in range(2):
-			#train_stop.position = coordinates[int(x)][int(y)]
-			#print(train_stop.position)
+			
+	train.position.x = coordinates[3][0]
+	train.position.y = coordinates[3][1]
+	print(coordinates)
+	print(train.position)
+	for x in range(sprites.size()):
+		sprites[x].position = Vector2i(2024,2024)
+	for x in range(coordinates.size()):
+		sprites[x].position = Vector2i(coordinates[x])
+			
 	altitude.seed = randi()
 	##generate_chunk(player.position)
 	
@@ -52,51 +56,51 @@ func _ready():
 	
 	if(result_png == OK):
 		print("PNG is successfully saved at " + file_path_png)
-		print(stop_amt)
+		#print(stop_amt)
 	else:
 		print("Ahhhhhhh, the image is burning!")
 	
 func write_r(red, x, y):
 	if red > 0:
-		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(round(red/63.75),round(red/63.75)))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 1, Vector2i(2,round(red*4)))
 
-func write_g(green, x, y):
+func write_g(green, x, y, coordinates):
 	if green > 0:
-		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
-		stop_amt += 1
-		print(stop_amt)
-
-		train_stop.position.x = coordinates[0][0]
-
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 1, Vector2i(1,1))
 		
 
 		
 func write_b(blue, x, y):
 	
 	if blue > 0:
-		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(3,2))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 1, Vector2i(3,2))
 func write_a(alpha, x, y):
 	if alpha < 1:
 
 
-
-		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
-
-
+#redundancy makes lines thicker, like a 3x3 grid
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x + 1, tile_pos.y-height/2 + y - 1), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x - 1, tile_pos.y-height/2 + y + 1), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x + 2, tile_pos.y-height/2 + y - 2), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x - 2, tile_pos.y-height/2 + y + 2), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x + 2, tile_pos.y-height/2 + y + 2), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x + 1, tile_pos.y-height/2 + y + 1), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x - 2, tile_pos.y-height/2 + y - 2), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x - 1, tile_pos.y-height/2 + y - 1), 1, Vector2i(0,0))
 var previous_position = Vector2(-1,-1)
-var movement_active = false
+var movement_active = true
 func _process(delta):
-	if Input.is_action_just_pressed("ui_select"):
-		movement_active = true
-	elif movement_active:
+	if movement_active:
 		var moved = false
-		for x in range(int(rectangle.position.x) - 1, int(rectangle.position.x) + 2):
-			for y in range(int(rectangle.position.y) - 1, int(rectangle.position.y) + 2):
+		for x in range(int(train.position.x) - 1, int(train.position.x) + 2):
+			for y in range(int(train.position.y) - 1, int(train.position.y) + 2):
 				var pixel_color = map.get_pixel(x, y)
 				var new_position = Vector2(x,y)
 				if (pixel_color.a < 1 and previous_position != new_position):
-					previous_position = rectangle.position
-					rectangle.position = new_position
+					previous_position = train.position
+					train.position = new_position
+					print(train.position, previous_position)
 					moved = true
 					break
 			if moved:

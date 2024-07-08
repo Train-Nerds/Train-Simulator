@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bie1irtfou2gi"
-path="res://.godot/imported/heightmapSimple.png-ed5d8e655f814289e347ad53f2dc5431.ctex"
+uid="uid://dmqat4jgmi50"
+path="res://.godot/imported/sigmaCircle.png-f900975105ba385100255791b31cc3d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://heightmapSimple.png"
-dest_files=["res://.godot/imported/heightmapSimple.png-ed5d8e655f814289e347ad53f2dc5431.ctex"]
+source_file="res://Scenes/sigmaCircle.png"
+dest_files=["res://.godot/imported/sigmaCircle.png-f900975105ba385100255791b31cc3d0.ctex"]
 
 [params]
 
