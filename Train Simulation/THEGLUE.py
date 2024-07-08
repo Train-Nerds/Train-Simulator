@@ -12,7 +12,7 @@ godotThread = threading.Thread(target=startGodotProject)
 
 godotThread.start()
 
-print("Bonjour")
+print("Hej")
 i = 0
 
 instructionFilePath = os.path.expanduser( "~" ) + "\\AppData\\Roaming\\Godot\\app_userdata\\Train Simulation\\loadingCommunication.bin"
@@ -27,7 +27,7 @@ loadingFile.close()
     
 def loadLoadingInfo():
     loadingFile = open(instructionFilePath)
-    print(loadingFile)
+    #print(loadingFile)
     loadingInfo = json.load((loadingFile))
     print(loadingInfo)
     loadingState = loadingInfo['loadingProgress']
