@@ -14,10 +14,7 @@ var maximum = 500000
 @onready var tile_pos = local_to_map(position)
 @onready var map = $"heightmap".texture.get_image()
 
-@onready var train_stop1 = $trainStop1
-@onready var train_stop2 =$trainStop2
-@onready var train_stop3 = $trainStop3
-
+@onready var train_stop = $train_stop
 @onready var rectangle = $rectangle
 
 
@@ -43,8 +40,10 @@ func _ready():
 			write_a(map.get_pixel(x,y)[3], x, y)
 	rectangle.position.x = coordinates[0][0]
 	rectangle.position.y = coordinates[0][1]
-	print(coordinates)
-	print(rectangle.position)
+	#for x in range(coordinates.size()):
+		#for y in range(2):
+			#train_stop.position = coordinates[int(x)][int(y)]
+			#print(train_stop.position)
 	altitude.seed = randi()
 	##generate_chunk(player.position)
 	
@@ -66,7 +65,7 @@ func write_g(green, x, y):
 		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
 		stop_amt += 1
 		print(stop_amt)
-		train_stop1.position = Vector2(x,y)
+		train_stop.position = Vector2(x,y)
 		
 
 		
