@@ -65,8 +65,13 @@ func path(a: Vector2, b: Vector2, image: Image) -> Image:
 	return image;
 
 
+<<<<<<< HEAD
 func _ready():
 	var image: Image = copy_to_rgba(Image.load_from_file("res://informationMap.png"));
+=======
+func run(input_path: String, output_path: String) -> Image:
+	var image: Image = copy_to_rgba(Image.load_from_file(input_path));
+>>>>>>> main
 	var cities: Array = find_cities(image);
 	var center: Vector2 = compute_center(cities);
 	
@@ -77,12 +82,10 @@ func _ready():
 	for i in range(1, deviations.size()):
 		if deviations[i] - deviations[i-1] > Vector2(100, 100):
 			branches.append(i);
-	
-	print(branches)
-	print(center)
-	
+			
 	for city in cities:
 		image = path(center, city, image);
+<<<<<<< HEAD
 	
 	
 	image.save_png(ProjectSettings.globalize_path("user://") + "proceduralRailOutput.png")
@@ -91,6 +94,14 @@ func _ready():
 	#print(center)
 	#print(deviations)
 	#print(maximum_deviation)
+=======
+		
+	image.save_png(output_path);
+	return image;
+
+func _ready():
+	pass
+>>>>>>> main
 
 func _process(delta):
 	pass
