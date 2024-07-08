@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/map_generator.gd" id="2_f81y8"]
 [ext_resource type="Texture2D" uid="uid://flv5f62axxb2" path="res://Scenes/img_test.jpg" id="3_jfhcs"]
 [ext_resource type="Texture2D" uid="uid://kkjiwrql3ogo" path="res://tst.png" id="4_equwf"]
-[ext_resource type="Texture2D" uid="uid://bqwbhc4fiy5id" path="res://trainicon.png" id="5_e0hq0"]
+[ext_resource type="Texture2D" uid="uid://bqwbhc4fiy5id" path="res://trainicon.png" id="5_y30e1"]
 [ext_resource type="Texture2D" uid="uid://dmqat4jgmi50" path="res://Scenes/sigmaCircle.png" id="6_wrbo5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fdqbd"]
@@ -52,14 +52,169 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("4_equwf")
 
-[node name="train" type="Sprite2D" parent="."]
+[node name="train0" type="Sprite2D" parent="."]
 z_index = 2
 position = Vector2(382.291, 427.689)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_e0hq0")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train1" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train2" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train3" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train4" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train5" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train6" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train7" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train8" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train9" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train10" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train11" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train12" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train13" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train14" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train15" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train16" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train17" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train18" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
+
+[node name="train19" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(382.291, 427.689)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_y30e1")
+centered = false
+offset = Vector2(-5, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(500, 500)
+zoom = Vector2(2, 2)
 
 [node name="trainStop0" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)

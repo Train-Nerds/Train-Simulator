@@ -107,11 +107,14 @@ func run(input_path: String, output_path: String) -> Image:
 	var maximum_deviation: Vector2 = deviations.reduce(func(accum, vec: Vector2): return vec_max(accum, vec));
 	
 	center = get_point_out_of_water(center, image);
+
 	for city in cities:
 		image = path(center, city, image);
 		var color = image.get_pixelv(city);
 		color[3] = 255;
+
 		image.set_pixelv(city, color);	
+
 	image.save_png(output_path);
 	
 	return image;
