@@ -15,7 +15,7 @@ var maximum = 500000
 @onready var map = $"heightmap".texture.get_image()
 
 @onready var train_stop = $trainStop
-@onready var rectangle = $rectangle
+@onready var train = $train
 @onready var train_stops_coords = []
 @onready var sprites = [$trainStop0,$trainStop1,$trainStop2, $trainStop3, $trainStop4, $trainStop5, $trainStop6, $trainStop7, $trainStop8, $trainStop9, $trainStop10, $trainStop11, $trainStop12, $trainStop13, $trainStop14, $trainStop15, $trainStop16, $trainStop17, $trainStop18, $trainStop19]
 
@@ -38,8 +38,11 @@ func _ready():
 			write_g(map.get_pixel(x,y)[1], x, y, coordinates)
 			write_b(map.get_pixel(x,y)[2], x, y)
 			write_a(map.get_pixel(x,y)[3], x, y)
-	rectangle.position.x = coordinates[0][0]
-	rectangle.position.y = coordinates[0][1]
+			
+	train.position.x = coordinates[3][0]
+	train.position.y = coordinates[3][1]
+	print(coordinates)
+	print(train.position)
 	for x in range(sprites.size()):
 		sprites[x].position = Vector2i(2024,2024)
 	for x in range(coordinates.size()):
@@ -53,7 +56,7 @@ func _ready():
 	
 	if(result_png == OK):
 		print("PNG is successfully saved at " + file_path_png)
-		print(stop_amt)
+		#print(stop_amt)
 	else:
 		print("Ahhhhhhh, the image is burning!")
 	
@@ -87,19 +90,17 @@ func write_a(alpha, x, y):
 		set_cell(0, Vector2i(tile_pos.x-width/2 + x - 1, tile_pos.y-height/2 + y - 1), 1, Vector2i(0,0))
 var previous_position = Vector2(-1,-1)
 var movement_active = true
-var velocity = 10
-var accel = 10
 func _process(delta):
 	if movement_active:
 		var moved = false
-		for x in range(int(rectangle.position.x) - 1, int(rectangle.position.x) + 2):
-			for y in range(int(rectangle.position.y) - 1, int(rectangle.position.y) + 2):
+		for x in range(int(train.position.x) - 1, int(train.position.x) + 2):
+			for y in range(int(train.position.y) - 1, int(train.position.y) + 2):
 				var pixel_color = map.get_pixel(x, y)
 				var new_position = Vector2(x,y)
 				if (pixel_color.a < 1 and previous_position != new_position):
-					previous_position = rectangle.position
-					rectangle.position = new_position
-					#print(previous_position, rectangle.position)
+					previous_position = train.position
+					train.position = new_position
+					print(train.position, previous_position)
 					moved = true
 					break
 			if moved:
