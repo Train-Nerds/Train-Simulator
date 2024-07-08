@@ -34,8 +34,10 @@ func _ready():
 			if(map.get_pixel(x,y)[1] > 0):
 				coordinates.append(Vector2(x,y))
 			##format is RGBA
+
 			write_r((map.get_pixel(x,y)[0]), x, y)
 			write_g(map.get_pixel(x,y)[1], x, y)
+
 			write_b(map.get_pixel(x,y)[2], x, y)
 			write_a(map.get_pixel(x,y)[3], x, y)
 	rectangle.position.x = coordinates[0][0]
@@ -61,7 +63,7 @@ func write_r(red, x, y):
 	if red > 0:
 		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 1, Vector2i(2,round(red*4)))
 
-func write_g(green, x, y):
+func write_g(green, x, y, coordinates):
 	if green > 0:
 		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 1, Vector2i(1,1))
 
