@@ -60,6 +60,7 @@ texture = ExtResource("6_w5hvs")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(500, 500)
+zoom = Vector2(2, 2)
 
 [node name="trainStop0" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)

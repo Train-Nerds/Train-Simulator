@@ -14,7 +14,7 @@ var maximum = 500000
 @onready var tile_pos = local_to_map(position)
 @onready var map = $"heightmap".texture.get_image()
 
-@onready var train_stop = $trainStop0
+@onready var train_stop = $trainStop
 @onready var rectangle = $rectangle
 @onready var train_stops_coords = []
 @onready var sprites = [$trainStop0,$trainStop1,$trainStop2, $trainStop3, $trainStop4, $trainStop5, $trainStop6, $trainStop7, $trainStop8, $trainStop9, $trainStop10, $trainStop11, $trainStop12, $trainStop13, $trainStop14, $trainStop15, $trainStop16, $trainStop17, $trainStop18, $trainStop19]
@@ -34,10 +34,8 @@ func _ready():
 			if(map.get_pixel(x,y)[1] > 0):
 				coordinates.append(Vector2(x,y))
 			##format is RGBA
-
 			write_r((map.get_pixel(x,y)[0]), x, y)
-			write_g(map.get_pixel(x,y)[1], x, y)
-
+			write_g(map.get_pixel(x,y)[1], x, y, coordinates)
 			write_b(map.get_pixel(x,y)[2], x, y)
 			write_a(map.get_pixel(x,y)[3], x, y)
 	rectangle.position.x = coordinates[0][0]
@@ -66,6 +64,7 @@ func write_r(red, x, y):
 func write_g(green, x, y, coordinates):
 	if green > 0:
 		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 1, Vector2i(1,1))
+		
 
 		
 func write_b(blue, x, y):
@@ -76,10 +75,16 @@ func write_a(alpha, x, y):
 	if alpha < 1:
 
 
-
+#redundancy makes lines thicker, like a 3x3 grid
 		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 1, Vector2i(0,0))
-
-
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x + 1, tile_pos.y-height/2 + y - 1), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x - 1, tile_pos.y-height/2 + y + 1), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x + 2, tile_pos.y-height/2 + y - 2), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x - 2, tile_pos.y-height/2 + y + 2), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x + 2, tile_pos.y-height/2 + y + 2), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x + 1, tile_pos.y-height/2 + y + 1), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x - 2, tile_pos.y-height/2 + y - 2), 1, Vector2i(0,0))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x - 1, tile_pos.y-height/2 + y - 1), 1, Vector2i(0,0))
 var previous_position = Vector2(-1,-1)
 var movement_active = true
 var velocity = 10
