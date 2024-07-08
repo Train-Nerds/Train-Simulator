@@ -13,7 +13,6 @@ func find_cities(p: Image) -> Array:
 		for y in range(height):
 			if p.get_pixel(x, y)[1] > 0:
 				cities.append(Vector2(x, y));
-		
 	return cities
 
 func index_to_coords(columns: int, i: int) -> Vector2:
@@ -64,6 +63,19 @@ func path(a: Vector2, b: Vector2, image: Image) -> Image:
 		is_y = not is_y;
 	return image;
 
+func get_point_out_of_water(point: Vector2, image: Image) -> Vector2:
+	var land_pixels: PackedVector2Array = [];
+	var width = image.get_width();
+	var height = image.get_height();
+	for x in range(width):
+		for y in range(height):
+			if image.get_pixel(x,y)[2] == 0:
+				land_pixels.append(Vector2(x,y));
+	var min_p = land_pixels[0];
+	for i in range(1, land_pixels.size()):
+		if abs(point-land_pixels[i]) < abs(point-min_p):
+			min_p = land_pixels[i];
+	return min_p;
 
 func run(input_path: String, output_path: String) -> Image:
 	var image: Image = copy_to_rgba(Image.load_from_file(input_path));
@@ -72,19 +84,20 @@ func run(input_path: String, output_path: String) -> Image:
 	
 	var deviations: Array = cities.map(func(city: Vector2): return (city - center));
 	var maximum_deviation: Vector2 = deviations.reduce(func(accum, vec: Vector2): return vec_max(accum, vec));
-
-	var branches: Array = [0,];
-	for i in range(1, deviations.size()):
-		if deviations[i] - deviations[i-1] > Vector2(100, 100):
-			branches.append(i);
-			
+	
+	center = get_point_out_of_water(center, image);
+	
 	for city in cities:
 		image = path(center, city, image);
+		var color = image.get_pixelv(city);
+		color[3] = 255;
+		image.set_pixelv(city, color);
 		
 	image.save_png(output_path);
 	return image;
 
 func _ready():
+	run("res://Scenes/Input_Image.png", "/home/pin/output.png");
 	pass
 
 func _process(delta):
