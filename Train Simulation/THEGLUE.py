@@ -27,9 +27,9 @@ loadingFile.close()
     
 def loadLoadingInfo():
     loadingFile = open(instructionFilePath)
-    #print(loadingFile)
-    loadingInfo = json.load(loadingFile)
-    #print(loadingInfo)
+    print(loadingFile)
+    loadingInfo = json.load((loadingFile))
+    print(loadingInfo)
     loadingState = loadingInfo['loadingProgress']
     return loadingState
     
