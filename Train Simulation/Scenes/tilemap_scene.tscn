@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cs5tgmfenup0k"]
+[gd_scene load_steps=9 format=3 uid="uid://bifgkfvxlqwkf"]
 
 [ext_resource type="Texture2D" uid="uid://kkn8iuflhoe6" path="res://tiles2.png" id="1_s5htj"]
 [ext_resource type="Script" path="res://Scenes/map_generator.gd" id="2_f81y8"]
@@ -103,7 +103,9 @@ text = "3
 "
 
 [node name="rectangle" type="Sprite2D" parent="."]
-scale = Vector2(0.001, 0.001)
+z_index = 2
+position = Vector2(376.733, -263.656)
+scale = Vector2(0.0964601, 0.0803507)
 texture = ExtResource("6_w5hvs")
 
 [node name="Camera2D" type="Camera2D" parent="."]
