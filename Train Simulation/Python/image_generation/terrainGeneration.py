@@ -209,7 +209,7 @@ loadingFile = open(os.path.abspath(os.path.join(thisPath, os.pardir)) + "\\loadi
 loadingFile.write("")
 loadingFile.close()
 
-file = open(thisPath + '\\settings.bin')
+file = open("C:\\Users\\bbsaw\\AppData\\Roaming\\Godot\\app_userdata\\Train Simulation\\settings.bin")
 settings = json.load(file)
 
 file.close()

@@ -1,11 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://8ek6ugshotww"]
+[gd_scene load_steps=11 format=3 uid="uid://8ek6ugshotww"]
 
 [ext_resource type="Texture2D" uid="uid://kkn8iuflhoe6" path="res://tiles2.png" id="1_jdwgp"]
+[ext_resource type="Texture2D" uid="uid://cvd14nyowd6b0" path="res://heightmapSimple.png" id="2_eb7a5"]
 [ext_resource type="Script" path="res://TileMap.gd" id="2_ltu6j"]
+[ext_resource type="Texture2D" uid="uid://vqsh6y0dfjyc" path="res://Scenes/heightmapSimple.png" id="2_lwuu1"]
 [ext_resource type="Texture2D" uid="uid://by3qymw3l3qkt" path="res://tiles2-1.png.png" id="3_x5xld"]
 [ext_resource type="Script" path="res://procedural_generation.gd" id="4_q5pv3"]
-[ext_resource type="Texture2D" uid="uid://dymfbvby3cxqs" path="res://heightmapR.png" id="5_pqjxq"]
 [ext_resource type="Texture2D" uid="uid://flv5f62axxb2" path="res://Scenes/img_test.jpg" id="6_wfnk8"]
+
+[ext_resource type="Texture2D" uid="uid://xjode8h8xkuo" path="res://rect.png" id="7_nbmlc"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tpmwh"]
 texture = ExtResource("1_jdwgp")
@@ -270,7 +274,9 @@ zoom = Vector2(0.05, 0.05)
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("5_pqjxq")
+
+texture = ExtResource("2_eb7a5")
+
 
 [node name="player" type="Sprite2D" parent="."]
 position = Vector2(502, 484)
@@ -282,7 +288,14 @@ tile_set = SubResource("TileSet_v2mjm")
 format = 2
 script = ExtResource("2_ltu6j")
 
-[connection signal="alpha" from="." to="TileMap" method="_on_procedural_generation_alpha"]
-[connection signal="blue" from="." to="TileMap" method="_on_procedural_generation_blue"]
-[connection signal="green" from="." to="TileMap" method="_on_procedural_generation_green"]
-[connection signal="red" from="." to="TileMap" method="_on_procedural_generation_red"]
+
+[node name="White Circle3" type="Sprite2D" parent="."]
+position = Vector2(-13970, -5266)
+scale = Vector2(3.79004, 3.5367)
+texture = ExtResource("7_tu2i6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3285.61, 1575.13)
+scale = Vector2(0.0725126, 0.0725126)
+texture = ExtResource("7_nbmlc")
+
