@@ -10,7 +10,7 @@ var minimum = -500000
 var maximum = 500000
 @onready var stop_amt = 0
 @onready var heightmap = Image.create(width, height, false, Image.FORMAT_RGBA8)
-@onready var player = $"../player"
+@onready var player = $player
 @onready var tile_pos = local_to_map(position)
 @onready var map = $"heightmap".texture.get_image()
 
@@ -49,30 +49,22 @@ func _ready():
 	
 	if(result_png == OK):
 		print("PNG is successfully saved at " + file_path_png)
+		print(stop_amt)
 	else:
 		print("Ahhhhhhh, the image is burning!")
 	
 func write_r(red, x, y):
-		if red > 0:
-			set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(round(red/63.75),round(red/63.75)))
+	if red > 0:
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(round(red/63.75),round(red/63.75)))
 
 func write_g(green, x, y):
-	
-	
-	if (green > 0 && stop_amt == 0):
+	if green > 0:
 		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
-		train_stop1.position = Vector2i(x,y)
-		stop_amt = 1
+		stop_amt += 1
+		print(stop_amt)
+		train_stop1.position = Vector2(x,y)
 		
-	if (green > 0 && stop_amt == 1):
-		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
-		train_stop2.position = Vector2i(x,y)
-		stop_amt = 2
-		
-	if (green > 0 && stop_amt == 2):
-		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
-		train_stop3.position = Vector2i(x,y)
-		stop_amt = 3
+
 		
 func write_b(blue, x, y):
 	
@@ -81,7 +73,7 @@ func write_b(blue, x, y):
 func write_a(alpha, x, y):
 	if alpha < 1:
 
-		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(0,3))
+		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
 
 
 func _process(delta):

@@ -51,7 +51,7 @@ texture = ExtResource("4_l3tlr")
 [node name="trainStop1" type="TextureRect" parent="."]
 offset_right = 512.0
 offset_bottom = 512.0
-scale = Vector2(0.0399997, 0.0403172)
+scale = Vector2(0.114206, 0.113499)
 texture = ExtResource("5_p2h4n")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="trainStop1"]
@@ -66,10 +66,11 @@ text = "1
 "
 
 [node name="trainStop2" type="TextureRect" parent="."]
-offset_top = 25.0
-offset_right = 512.0
-offset_bottom = 537.0
-scale = Vector2(0.0401578, 0.0415889)
+offset_left = 49.0
+offset_top = 60.0
+offset_right = 561.0
+offset_bottom = 572.0
+scale = Vector2(0.111256, 0.107228)
 texture = ExtResource("5_p2h4n")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="trainStop2"]
@@ -84,10 +85,10 @@ text = "2
 "
 
 [node name="trainStop3" type="TextureRect" parent="."]
-offset_left = 22.0
-offset_right = 534.0
+offset_left = 69.0
+offset_right = 581.0
 offset_bottom = 512.0
-scale = Vector2(0.0399997, 0.0403172)
+scale = Vector2(0.11617, 0.115001)
 texture = ExtResource("5_p2h4n")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="trainStop3"]
