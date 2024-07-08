@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vqsh6y0dfjyc"
-path="res://.godot/imported/heightmapSimple.png-a30256ca317cde23f793e6617a11fe84.ctex"
+uid="uid://cu8p40igit7pg"
+path="res://.godot/imported/heightmapNew.png-2819671ece92358090d03dadccebea95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/heightmapSimple.png"
-dest_files=["res://.godot/imported/heightmapSimple.png-a30256ca317cde23f793e6617a11fe84.ctex"]
+source_file="res://heightmapNew.png"
+dest_files=["res://.godot/imported/heightmapNew.png-2819671ece92358090d03dadccebea95.ctex"]
 
 [params]
 
