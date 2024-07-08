@@ -65,8 +65,8 @@ func path(a: Vector2, b: Vector2, image: Image) -> Image:
 	return image;
 
 
-func _ready():
-	var image: Image = copy_to_rgba(Image.load_from_file("res://Python/Input_Image.png"));
+func run(input_path: String, output_path: String) -> Image:
+	var image: Image = copy_to_rgba(Image.load_from_file(input_path));
 	var cities: Array = find_cities(image);
 	var center: Vector2 = compute_center(cities);
 	
@@ -77,20 +77,15 @@ func _ready():
 	for i in range(1, deviations.size()):
 		if deviations[i] - deviations[i-1] > Vector2(100, 100):
 			branches.append(i);
-	
-	print(branches)
-	print(center)
-	
+			
 	for city in cities:
 		image = path(center, city, image);
-	
-	
-	image.save_png("/home/pin/output.png")
-	
-	#print(cities)
-	#print(center)
-	#print(deviations)
-	#print(maximum_deviation)
+		
+	image.save_png(output_path);
+	return image;
+
+func _ready():
+	pass
 
 func _process(delta):
 	pass
