@@ -127,6 +127,7 @@ def generate_rivers(terrain, num_rivers, river_threshold):
 def generate_population(terrain, rivers, num_clusters, growth_steps, growth_probability):
     print("Generating Population...")
     height, width = terrain.shape
+    global population
     population = np.zeros((height, width))
     
     i = 0
@@ -199,101 +200,126 @@ def prep_world(world):
     return world
 
 
-#importing settings from Godot
+def main():
+    #importing settings from Godot
 
-# COMMENT OUT 205 FOR VSCODE, WHEN USING COMMAND PROMPT, COMMENT ABOUT 206
-thisPath = os.getcwd()
-#thisPath = os.getcwd() + "\\Desktop\\Documents\\GitHub\\Train-Simulator\\Train Simulation\\Python\\image_generation"
+    # COMMENT OUT 205 FOR VSCODE, WHEN USING COMMAND PROMPT, COMMENT ABOUT 206
+    thisPath = os.getcwd()
+    #thisPath = os.getcwd() + "\\Desktop\\Documents\\GitHub\\Train-Simulator\\Train Simulation\\Python\\image_generation"
 
-loadingFile = open(os.path.abspath(os.path.join(thisPath, os.pardir)) + "\\loadingCommunication.txt", "w")
-loadingFile.write("")
-loadingFile.close()
+    loadingFilePath = os.path.expanduser( "~" ) + "\\AppData\\Roaming\\Godot\\app_userdata\\Train Simulation\\loadingCommunication.bin"
+    
+    loadingFile = open(loadingFilePath, "w")
+    loadingFile.write("")
+    loadingFile.close()
 
-file = open("C:\\Users\\bbsaw\\AppData\\Roaming\\Godot\\app_userdata\\Train Simulation\\settings.bin")
-settings = json.load(file)
+    file = open("C:\\Users\\bbsaw\\AppData\\Roaming\\Godot\\app_userdata\\Train Simulation\\settings.bin")
+    global settings
+    settings = json.load(file)
 
-file.close()
+    file.close()
 
-loadingFile = open(os.path.abspath(os.path.join(thisPath, os.pardir)) + "\\loadingCommunication.txt", "a")
-loadingFile.write("0")
-loadingFile.close()
+    # loadingFile = open(loadingFilePath, "a")
+    # loadingFile.write("0")
+    # loadingFile.close()
 
-shape = (1000,1000)
-scale = settings['noiseScale']
-octaves = settings['octaves']
-persistence = 0.5
-lacunarity = float(settings['lacunarity'])
-seed = settings['seed']
-print(seed)
-world = np.zeros(shape)
-for i in range(shape[0]):
-    for j in range(shape[1]):
-        world[i][j] = noise.pnoise2(i/scale, 
-                                    j/scale, 
-                                    octaves=octaves, 
-                                    persistence=persistence, 
-                                    lacunarity=lacunarity, 
-                                    repeatx=1000, 
-                                    repeaty=1000, 
-                                    base=seed)
-        
-center_x, center_y = shape[1] // 2, shape[0] // 2
-circle_grad = np.zeros_like(world)
-for y in range(world.shape[0]):
-    for x in range(world.shape[1]):
-        distx = abs(x - center_x)
-        disty = abs(y - center_y)
-        dist = math.sqrt(distx*distx + disty*disty)
-        circle_grad[y][x] = dist
-# get it between -1 and 1
-max_grad = np.max(circle_grad)
-circle_grad = circle_grad / max_grad
-circle_grad -= 0.8
-circle_grad *= 1.2
-circle_grad = -circle_grad
-world_noise = np.zeros_like(world)
-for i in range(shape[0]):
-    for j in range(shape[1]):
-        #if circle_grad[i][j] > 0:
-        world_noise[i][j] = (world[i][j] * circle_grad[i][j])
-print("Terrain Generated!")
+    global shape
+    shape = (1000,1000)
+    scale = settings['noiseScale']
+    octaves = settings['octaves']
+    persistence = 0.5
+    lacunarity = float(settings['lacunarity'])
+    seed = settings['seed']
+    cities_amt = settings['cities_amt']
+    
+    print(seed)
+    world = np.zeros(shape)
+    for i in range(shape[0]):
+        for j in range(shape[1]):
+            world[i][j] = noise.pnoise2(i/scale, 
+                                        j/scale, 
+                                        octaves=octaves, 
+                                        persistence=persistence, 
+                                        lacunarity=lacunarity, 
+                                        repeatx=1000, 
+                                        repeaty=1000, 
+                                        base=seed)
+            
+    center_x, center_y = shape[1] // 2, shape[0] // 2
+    circle_grad = np.zeros_like(world)
+    for y in range(world.shape[0]):
+        for x in range(world.shape[1]):
+            distx = abs(x - center_x)
+            disty = abs(y - center_y)
+            dist = math.sqrt(distx*distx + disty*disty)
+            circle_grad[y][x] = dist
+    # get it between -1 and 1
+    max_grad = np.max(circle_grad)
+    circle_grad = circle_grad / max_grad
+    circle_grad -= 0.8
+    circle_grad *= 1.2
+    circle_grad = -circle_grad
+    world_noise = np.zeros_like(world)
+    for i in range(shape[0]):
+        for j in range(shape[1]):
+            #if circle_grad[i][j] > 0:
+            world_noise[i][j] = (world[i][j] * circle_grad[i][j])
+    print("Terrain Generated!")
 
-loadingFile = open(os.path.abspath(os.path.join(thisPath, os.pardir)) + "\\loadingCommunication.txt", "a")
-loadingFile.write("1")
-loadingFile.close()
+    loadingFile = open(loadingFilePath, "w")
+    loadingInfo = {
+        "loadingProgress" : 1
+    }
+    
+    json.dump(loadingInfo, loadingFile)
+    loadingFile.close()
 
-lightblue = [0,191,255]
-blue = [65,105,225]
-green = [34,139,34]
-darkgreen = [0,100,0]
-sandy = [210,180,140]
-beach = [238, 214, 175]
-snow = [255, 250, 250]
-mountain = [139, 137, 137]
-threshold = 50
-rivers = generate_rivers(world_noise.copy(), 20, 0.1)
+    lightblue = [0,191,255]
+    blue = [65,105,225]
+    green = [34,139,34]
+    darkgreen = [0,100,0]
+    sandy = [210,180,140]
+    beach = [238, 214, 175]
+    snow = [255, 250, 250]
+    mountain = [139, 137, 137]
+    global threshold
+    threshold = 50
+    rivers = generate_rivers(world_noise.copy(), 20, 0.1)
 
-loadingFile = open(os.path.abspath(os.path.join(thisPath, os.pardir)) + "\\loadingCommunication.txt", "a")
-loadingFile.write("2")
-loadingFile.close()
+    loadingFile = open(loadingFilePath, "w")
+    loadingInfo = {
+        "loadingProgress" : 2
+    }
+    
+    json.dump(loadingInfo, loadingFile)
+    loadingFile.close()
 
-population = generate_population(world_noise.copy(), rivers, settings["cities_amt"], 100, 0.9).astype(np.uint8)
-loadingFile = open(os.path.abspath(os.path.join(thisPath, os.pardir)) + "\\loadingCommunication.txt", "a")
-loadingFile.write("3")
-loadingFile.close()
+    population = generate_population(world_noise.copy(), rivers, cities_amt, 1, .1)
+    
+    loadingFile = open(loadingFilePath, "w")
+    loadingInfo = {
+        "loadingProgress" : 3
+    }
+    
+    json.dump(loadingInfo, loadingFile)
+    loadingFile.close()
 
-heightmap_grad = prepareChannel(prep_world(world_noise)).astype(np.uint8)
-heightmap = Image.fromarray(heightmap_grad)
-rivermap = Image.fromarray(rivers.astype(np.uint8))
-#rivermap.save("rivermap.png")
-populationMap = Image.fromarray(population.astype(np.uint8))
-#populationMap.save("populationmap.png")
-heightmap = heightmap.convert("L")
-informationMap = Image.merge("RGB", (heightmap, populationMap, rivermap))
-informationMap.save(thisPath + "\\informationMap.png")
-#informationMap.show()
-#Image.fromarray(add_color2(informationMap).astype(np.uint8)).show()
+    heightmap_grad = prepareChannel(prep_world(world_noise)).astype(np.uint8)
+    heightmap = Image.fromarray(heightmap_grad)
+    rivermap = Image.fromarray(rivers.astype(np.uint8))
+    #rivermap.save("rivermap.png")
+    populationMap = Image.fromarray(population.astype(np.uint8))
+    #populationMap.save("populationmap.png")
+    heightmap = heightmap.convert("L")
+    informationMap = Image.merge("RGB", (heightmap, populationMap, rivermap))
+    informationMap.save(thisPath + "\\informationMap.png")
+    #informationMap.show()
+    #Image.fromarray(add_color2(informationMap).astype(np.uint8)).show()
 
-loadingFile = open(os.path.abspath(os.path.join(thisPath, os.pardir)) + "\\loadingCommunication.txt", "a")
-loadingFile.write("4")
-loadingFile.close()
+    loadingFile = open(loadingFilePath, "w")
+    loadingInfo = {
+        "loadingProgress" : 4
+    }
+    
+    json.dump(loadingInfo, loadingFile)
+    loadingFile.close()
