@@ -76,9 +76,6 @@ func write_b(blue, x, y):
 		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(3,2))
 func write_a(alpha, x, y):
 	if alpha < 1:
-
-
-
 		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
 
 
@@ -95,6 +92,7 @@ func _process(delta):
 				var pixel_color = map.get_pixel(x, y)
 				if(pixel_color.a < 1):
 					target_position = Vector2(x,y)
+					print(target_position)
 					break
 			if target_position != null:
 				break
