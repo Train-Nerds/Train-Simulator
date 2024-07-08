@@ -12,7 +12,8 @@ var mouseArrow = load("res://UISprite/minimal-gear-pack.png")
 var mouseOther = load("res://UISprite/gearMouse.png")
 
 
-const SAVE_PATH: String = "user://settings.bin"
+@onready var SAVE_PATH: String = "user://settings.bin"
+
 #utility
 @onready var closing = false
 
@@ -67,7 +68,6 @@ func _on_start_button_pressed():
 #endregion
 
 #region Writing to a File (.bin)	
-	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	
 	var information = {
 		cities_amt = self.cities_amt,
@@ -78,9 +78,9 @@ func _on_start_button_pressed():
 		lacunarity = self.lacunarity
 	}
 	
-
 	var jstr = JSON.stringify(information)
-	file.store_line(jstr)
+	print(str(ProjectSettings.globalize_path(SAVE_PATH)))
+	FileAccess.open(ProjectSettings.globalize_path(SAVE_PATH), FileAccess.WRITE).store_line(jstr)
 	
 	$AnimationPlayer.play("closing_Animations")
 	
