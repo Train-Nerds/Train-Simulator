@@ -7,32 +7,54 @@ func _ready():
 	#OS.create_process("CMD.exe", ["/C", "C:/Python311/python.exe " + ProjectSettings.globalize_path("res://Python/image_generation/") + "terrainGeneration.py"])
 	#print("executing")
 	
-	OS.create_process("c:\\winnt\\system32\\cmd.exe", [])
+	#OS.create_process("c:\\winnt\\system32\\cmd.exe", [])
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var communication = FileAccess.open("res://Python/loadingCommunication.txt", FileAccess.READ)
+	var communication = FileAccess.open("user://loadingCommunication.bin", FileAccess.READ)
 	var communicationText = communication.get_as_text()
+	var loadingInfo = JSON.new()
+	var error = loadingInfo.parse(communicationText)
+
 	communication.close()
 	
+	#print(loadingInfo.data)
 	var goal = 0
-	
-	match len(communicationText):
-		0:
+	var loadingText = "Loading..."
+	#print(loadingInfo.data['loadingProgress'])
+	print(typeof(loadingInfo.data['loadingProgress']))
+	match loadingInfo.data['loadingProgress']:
+		0.0:
 			goal = 0
-		1:
+			loadingText = "Generating Terrain..."
+			#print("Goal is 0")
+		1.0:
 			goal = 5
-		2:
+			#print("Goal is 5")
+			loadingText = "Generating Terrain..."
+		2.0:
 			goal = 10
-		3:
+			loadingText = "Generating Terrain..."
+		3.0:
 			goal = 19
-		4:
+			loadingText = "Generating Terrain..."
+		4.0:
 			goal = 25
-		5:
+			loadingText = "Procedurally Generating Rails..."
+		5.0:
 			goal = 33
+			loadingText = "AI is Generating Rails..."
+		6.0:
+			goal = 80
+			loadingText = "Finished!"
+		_:
+			#print("None")
+			pass
 	
 	$ColorRect/VBoxContainer/HBoxContainer/LoadingBar.goalPercent = goal
+	$ColorRect/VBoxContainer/HBoxContainer2/Label.text = loadingText
 
 func _on_loading_bar_value_changed(value):
 	if(value >= 100):
