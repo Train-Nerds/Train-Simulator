@@ -25,6 +25,8 @@ func _process(delta):
 	var loadingText = "Loading..."
 	#print(loadingInfo.data['loadingProgress'])
 	print(typeof(loadingInfo.data['loadingProgress']))
+	
+	var proceduralRailsStarted = false
 	match loadingInfo.data['loadingProgress']:
 		0.0:
 			goal = 0
@@ -43,6 +45,10 @@ func _process(delta):
 		4.0:
 			goal = 25
 			loadingText = "Procedurally Generating Rails..."
+			if(not proceduralRailsStarted):
+				var proceduralScript = preload("res://Scenes/heightInput.gd").new()
+				proceduralScript.ready
+			
 		5.0:
 			goal = 33
 			loadingText = "AI is Generating Rails..."
