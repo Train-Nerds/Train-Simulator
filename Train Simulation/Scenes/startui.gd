@@ -83,11 +83,7 @@ func _on_start_button_pressed():
 	print(str(ProjectSettings.globalize_path(SAVE_PATH)))
 	FileAccess.open(ProjectSettings.globalize_path(SAVE_PATH), FileAccess.WRITE).store_line(jstr)
 	
-	var loadingInfo = {
-		loadingProgress = 1
-	}
-	
-	jstr = JSON.stringify(loadingInfo)
+	jstr = "{\"loadingProgress\": 1}"
 	print(str(ProjectSettings.globalize_path(LOAD_INFO_PATH)))
 	FileAccess.open(ProjectSettings.globalize_path(LOAD_INFO_PATH), FileAccess.WRITE).store_line(jstr)
 	
