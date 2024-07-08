@@ -1,0 +1,110 @@
+[gd_scene load_steps=9 format=3 uid="uid://cs5tgmfenup0k"]
+
+[ext_resource type="Texture2D" uid="uid://kkn8iuflhoe6" path="res://tiles2.png" id="1_s5htj"]
+[ext_resource type="Script" path="res://Scenes/map_generator.gd" id="2_f81y8"]
+[ext_resource type="Texture2D" uid="uid://flv5f62axxb2" path="res://Scenes/img_test.jpg" id="3_jfhcs"]
+[ext_resource type="Texture2D" uid="uid://vqsh6y0dfjyc" path="res://Scenes/heightmapSimple.png" id="4_l3tlr"]
+[ext_resource type="Texture2D" uid="uid://bqpyaxxsll2gm" path="res://circle-512.png" id="5_p2h4n"]
+[ext_resource type="Texture2D" uid="uid://xjode8h8xkuo" path="res://rect.png" id="6_w5hvs"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kt0c7"]
+texture = ExtResource("1_s5htj")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0mjy0"]
+sources/0 = SubResource("TileSetAtlasSource_kt0c7")
+
+[node name="TrainMap" type="TileMap"]
+tile_set = SubResource("TileSet_0mjy0")
+format = 2
+script = ExtResource("2_f81y8")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="player" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(500, 500)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_jfhcs")
+
+[node name="heightmap" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_l3tlr")
+
+[node name="trainStop1" type="TextureRect" parent="."]
+offset_right = 512.0
+offset_bottom = 512.0
+scale = Vector2(0.0399997, 0.0403172)
+texture = ExtResource("5_p2h4n")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="trainStop1"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 103.0
+offset_top = 97.0
+offset_right = 179.0
+offset_bottom = 138.0
+scale = Vector2(21.0001, 16.8741)
+text = "1
+"
+
+[node name="trainStop2" type="TextureRect" parent="."]
+offset_top = 25.0
+offset_right = 512.0
+offset_bottom = 537.0
+scale = Vector2(0.0401578, 0.0415889)
+texture = ExtResource("5_p2h4n")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="trainStop2"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 103.0
+offset_top = 97.0
+offset_right = 179.0
+offset_bottom = 138.0
+scale = Vector2(21.0001, 16.8741)
+text = "2
+"
+
+[node name="trainStop3" type="TextureRect" parent="."]
+offset_left = 22.0
+offset_right = 534.0
+offset_bottom = 512.0
+scale = Vector2(0.0399997, 0.0403172)
+texture = ExtResource("5_p2h4n")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="trainStop3"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 103.0
+offset_top = 97.0
+offset_right = 179.0
+offset_bottom = 138.0
+scale = Vector2(21.0001, 16.8741)
+text = "3
+"
+
+[node name="rectangle" type="Sprite2D" parent="."]
+scale = Vector2(0.001, 0.001)
+texture = ExtResource("6_w5hvs")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(500, 500)
+zoom = Vector2(0.1, 0.1)
