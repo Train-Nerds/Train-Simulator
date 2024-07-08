@@ -65,7 +65,9 @@ func write_g(green, x, y):
 		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
 		stop_amt += 1
 		print(stop_amt)
-		train_stop.position = Vector2(x,y)
+
+		train_stop.position.x = coordinates[0][0]
+
 		
 
 		
