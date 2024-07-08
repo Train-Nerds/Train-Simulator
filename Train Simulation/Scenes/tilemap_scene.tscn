@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://kkn8iuflhoe6" path="res://tiles2.png" id="1_s5htj"]
 [ext_resource type="Script" path="res://Scenes/map_generator.gd" id="2_f81y8"]
 [ext_resource type="Texture2D" uid="uid://flv5f62axxb2" path="res://Scenes/img_test.jpg" id="3_jfhcs"]
-[ext_resource type="Texture2D" uid="uid://cu8p40igit7pg" path="res://heightmapNew.png" id="4_ieftw"]
+[ext_resource type="Texture2D" uid="uid://bie1irtfou2gi" path="res://heightmapSimple.png" id="4_l3tlr"]
 [ext_resource type="Texture2D" uid="uid://bqpyaxxsll2gm" path="res://circle-512.png" id="5_p2h4n"]
 [ext_resource type="Texture2D" uid="uid://xjode8h8xkuo" path="res://rect.png" id="6_w5hvs"]
 
@@ -27,13 +27,10 @@ texture = ExtResource("1_s5htj")
 3:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_0mjy0"]
-tile_size = Vector2i(1, 1)
 sources/0 = SubResource("TileSetAtlasSource_kt0c7")
 
 [node name="TrainMap" type="TileMap"]
-position = Vector2(500, 500)
 tile_set = SubResource("TileSet_0mjy0")
-rendering_quadrant_size = 1
 format = 2
 script = ExtResource("2_f81y8")
 
@@ -49,7 +46,7 @@ texture = ExtResource("3_jfhcs")
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("4_ieftw")
+texture = ExtResource("4_l3tlr")
 
 [node name="trainStop1" type="TextureRect" parent="."]
 offset_right = 512.0
@@ -107,9 +104,10 @@ text = "3
 
 [node name="rectangle" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(634.097, 745.828)
-scale = Vector2(0.00498429, 0.00508503)
+position = Vector2(376.733, -263.656)
+scale = Vector2(0.0964601, 0.0803507)
 texture = ExtResource("6_w5hvs")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(500, 500)
+zoom = Vector2(0.1, 0.1)
