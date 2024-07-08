@@ -1,4 +1,5 @@
 extends Control
+@onready var LOAD_INFO_PATH: String = "user://loadingCommunication.bin"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,6 +26,8 @@ func _process(delta):
 	var loadingText = "Loading..."
 	#print(loadingInfo.data['loadingProgress'])
 	print(typeof(loadingInfo.data['loadingProgress']))
+	
+	var proceduralRailsStarted = false
 	match loadingInfo.data['loadingProgress']:
 		0.0:
 			goal = 0
@@ -41,10 +44,21 @@ func _process(delta):
 			goal = 19
 			loadingText = "Generating Terrain..."
 		4.0:
-			goal = 25
+			goal = 45
 			loadingText = "Procedurally Generating Rails..."
+			if(not proceduralRailsStarted):
+				var proceduralScript = preload("res://Scenes/generator.gd").new()
+				proceduralScript.run("res://informationMap.png", "user://proceduralRailOutput.png")
+				var loadingInfoDef = {
+					loadingProgress = 5
+				}
+	
+				var jstr = "{\"loadingProgress\": 5}"
+				print(str(ProjectSettings.globalize_path(LOAD_INFO_PATH)))
+				FileAccess.open(ProjectSettings.globalize_path(LOAD_INFO_PATH), FileAccess.WRITE).store_line(jstr)
+			
 		5.0:
-			goal = 33
+			goal = 60
 			loadingText = "AI is Generating Rails..."
 		6.0:
 			goal = 80

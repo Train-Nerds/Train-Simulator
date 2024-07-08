@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var LOAD_INFO_PATH: String = "user://loadingCommunication.bin"
+
 func copy_to_rgba(x: Image) -> Image:
 	var image = Image.create_from_data(1000, 1000, false, Image.FORMAT_RGB8, x.get_data());
 	image.convert(Image.FORMAT_RGBA8);
@@ -77,6 +79,7 @@ func get_point_out_of_water(point: Vector2, image: Image) -> Vector2:
 			min_p = land_pixels[i];
 	return min_p;
 
+
 func run(input_path: String, output_path: String) -> Image:
 	var image: Image = copy_to_rgba(Image.load_from_file(input_path));
 	var cities: Array = find_cities(image);
@@ -94,11 +97,16 @@ func run(input_path: String, output_path: String) -> Image:
 		image.set_pixelv(city, color);
 		
 	image.save_png(output_path);
+	
 	return image;
 
 func _ready():
+<<<<<<< HEAD
 	run("res://Scenes/Input_Image.png", "/home/pin/output.png");
+=======
+	#run("res://Scenes/Input_Image.png", "user://proceduralRailOutput.png")
+>>>>>>> b946a0a95f4352b1cea66d8ded21c34a26f76589
 	pass
-
+	
 func _process(delta):
 	pass
