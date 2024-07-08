@@ -14,9 +14,10 @@ var maximum = 500000
 @onready var tile_pos = local_to_map(position)
 @onready var map = $"heightmap".texture.get_image()
 
-@onready var train_stop = $train_stop
+@onready var train_stop = $trainStop
 @onready var rectangle = $rectangle
-
+@onready var train_stops_coords = []
+@onready var sprites = [$trainStop0,$trainStop1,$trainStop2, $trainStop3, $trainStop4, $trainStop5, $trainStop6, $trainStop7, $trainStop8, $trainStop9, $trainStop10, $trainStop11, $trainStop12, $trainStop13, $trainStop14, $trainStop15, $trainStop16, $trainStop17, $trainStop18, $trainStop19]
 
 
 
@@ -25,7 +26,6 @@ func _ready():
 	#signal testing, should communicate with noise_read.gd
 	print(width, height)
 	map.convert(Image.FORMAT_RGBA8)
-	print(map.get_pixel(1,1))
 	var coordinates = []
 	#print(rectangle.position)
 	for x in range(height):
@@ -40,10 +40,11 @@ func _ready():
 			write_a(map.get_pixel(x,y)[3], x, y)
 	rectangle.position.x = coordinates[0][0]
 	rectangle.position.y = coordinates[0][1]
-	#for x in range(coordinates.size()):
-		#for y in range(2):
-			#train_stop.position = coordinates[int(x)][int(y)]
-			#print(train_stop.position)
+	for x in range(sprites.size()):
+		sprites[x].position = Vector2i(2024,2024)
+	for x in range(coordinates.size()):
+		sprites[x].position = Vector2i(coordinates[x])
+			
 	altitude.seed = randi()
 	##generate_chunk(player.position)
 	
@@ -63,11 +64,6 @@ func write_r(red, x, y):
 func write_g(green, x, y, coordinates):
 	if green > 0:
 		set_cell(0, Vector2i(tile_pos.x-width/2 + x, tile_pos.y-height/2 + y), 0, Vector2i(2,0))
-		stop_amt += 1
-		print(stop_amt)
-
-		train_stop.position.x = coordinates[0][0]
-
 		
 
 		
@@ -84,11 +80,11 @@ func write_a(alpha, x, y):
 
 
 var previous_position = Vector2(-1,-1)
-var movement_active = false
+var movement_active = true
+var velocity = 10
+var accel = 10
 func _process(delta):
-	if Input.is_action_just_pressed("ui_select"):
-		movement_active = true
-	elif movement_active:
+	if movement_active:
 		var moved = false
 		for x in range(int(rectangle.position.x) - 1, int(rectangle.position.x) + 2):
 			for y in range(int(rectangle.position.y) - 1, int(rectangle.position.y) + 2):
@@ -97,6 +93,7 @@ func _process(delta):
 				if (pixel_color.a < 1 and previous_position != new_position):
 					previous_position = rectangle.position
 					rectangle.position = new_position
+					print(previous_position, rectangle.position)
 					moved = true
 					break
 			if moved:
