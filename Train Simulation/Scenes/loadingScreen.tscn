@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b2hv3xnb0xskd"]
 
-[ext_resource type="Script" path="res://Scenes/loadingScreen.gd" id="1_ce023"]
 [ext_resource type="Script" path="res://Scenes/ColorRect.gd" id="1_pdoa0"]
+[ext_resource type="Script" path="res://Scenes/loadingScreen.gd" id="1_yrj58"]
 [ext_resource type="FontFile" uid="uid://dl4um7ynrmw5m" path="res://helvetica-255/helvetica-rounded-bold-5871d05ead8de.otf" id="2_3yja7"]
 [ext_resource type="Script" path="res://Scenes/LoadingBar.gd" id="3_lhqv6"]
 
@@ -112,7 +112,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ce023")
+script = ExtResource("1_yrj58")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
