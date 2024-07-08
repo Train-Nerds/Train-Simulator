@@ -51,60 +51,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("4_ieftw")
 
-[node name="trainStop1" type="TextureRect" parent="."]
-offset_right = 512.0
-offset_bottom = 512.0
-scale = Vector2(0.114206, 0.113499)
-texture = ExtResource("5_p2h4n")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="trainStop1"]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 103.0
-offset_top = 97.0
-offset_right = 179.0
-offset_bottom = 138.0
-scale = Vector2(21.0001, 16.8741)
-text = "1
-"
-
-[node name="trainStop2" type="TextureRect" parent="."]
-offset_left = 49.0
-offset_top = 60.0
-offset_right = 561.0
-offset_bottom = 572.0
-scale = Vector2(0.111256, 0.107228)
-texture = ExtResource("5_p2h4n")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="trainStop2"]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 103.0
-offset_top = 97.0
-offset_right = 179.0
-offset_bottom = 138.0
-scale = Vector2(21.0001, 16.8741)
-text = "2
-"
-
-[node name="trainStop3" type="TextureRect" parent="."]
-offset_left = 69.0
-offset_right = 581.0
-offset_bottom = 512.0
-scale = Vector2(0.11617, 0.115001)
-texture = ExtResource("5_p2h4n")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="trainStop3"]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 103.0
-offset_top = 97.0
-offset_right = 179.0
-offset_bottom = 138.0
-scale = Vector2(21.0001, 16.8741)
-text = "3
-"
-
 [node name="rectangle" type="Sprite2D" parent="."]
 z_index = 2
 position = Vector2(634.097, 745.828)
@@ -113,3 +59,7 @@ texture = ExtResource("6_w5hvs")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(500, 500)
+
+[node name="train_stop" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_p2h4n")
