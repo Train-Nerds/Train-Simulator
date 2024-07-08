@@ -89,18 +89,14 @@ func _process(delta):
 		movement_active = true
 	elif movement_active:
 		var moved = false
-		var target_position = null
 		for x in range(int(rectangle.position.x) - 1, int(rectangle.position.x) + 2):
 			for y in range(int(rectangle.position.y) - 1, int(rectangle.position.y) + 2):
 				var pixel_color = map.get_pixel(x, y)
-				if(pixel_color.a < 1):
-					target_position = Vector2(x,y)
+				var new_position = Vector2(x,y)
+				if (pixel_color.a < 1 and previous_position != new_position):
+					previous_position = rectangle.position
+					rectangle.position = new_position
+					moved = true
 					break
-			if target_position != null:
+			if moved:
 				break
-		if target_position != null:
-			var move_distance = 100 * delta
-			var direction = (target_position - rectangle.position).normalized()
-			rectangle.position += direction * move_distance
-			print(rectangle.position)
-			moved = true
