@@ -63,13 +63,15 @@ func path(a: Vector2, b: Vector2, image: Image) -> Image:
 		is_y = y_grad <= x_grad and dxdy[1] as bool or not dxdy[0] as bool;
 		var turn = is_y as int;
 		
-		# look ahead and see if there is water
-		if image.get_pixelv(head + dxdy[turn])[2] > 0:
-			var river = image.get_pixelv(head + 3*dxdy[turn])[2] == 0;
-		# if there is a river, cross it.
-		# if there is a lake, go around
 		
-		head[turn] += dxdy[turn];
+		const ZV = Vector2(0, 0);
+		var move = ZV;
+		move[turn] = dxdy[turn];
+		
+		
+				
+		head += move;
+		print(head)
 		if (a-head)[turn] == 0: dxdy[turn] = 0;
 		color[3] = 0;
 		image.set_pixelv(head, color);
@@ -101,7 +103,7 @@ func pythag_center(points: Array) -> Vector2:
 func run(input_path: String, output_path: String) -> Image:
 	var image: Image = copy_to_rgba(Image.load_from_file(input_path));
 	var cities: Array = find_cities(image);
-	var center: Vector2 = pythag_center(cities);
+	var center: Vector2 = compute_center(cities);
 	
 	var deviations: Array = cities.map(func(city: Vector2): return (city - center));
 	var maximum_deviation: Vector2 = deviations.reduce(func(accum, vec: Vector2): return vec_max(accum, vec));
