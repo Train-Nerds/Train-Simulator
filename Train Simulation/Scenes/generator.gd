@@ -13,7 +13,7 @@ func find_cities(p: Image) -> Array:
 	var height: int = p.get_height();
 	for x in range(width):
 		for y in range(height):
-			if p.get_pixel(x, y)[1] > 0:
+			if p.get_pixel(x, y)[1] == 1:
 				cities.append(Vector2(x, y));
 	return cities
 
@@ -68,6 +68,7 @@ func path(a: Vector2, b: Vector2, image: Image) -> Image:
 		
 		head += move;
 		if (a-head)[turn] == 0: dxdy[turn] = 0;
+		color = image.get_pixelv(head)
 		color[3] = 0;
 		image.set_pixelv(head, color);
 	return image;
@@ -113,16 +114,19 @@ func run(input_path: String, output_path: String) -> Image:
 
 	image.save_png(output_path);
 	
+	cities = find_cities(image)
+	print(cities)
 	return image;
 
 func _ready():
-	#var dir = DirAccess.open("res://Python/image_generation/data/");
-	#if dir:
-	#	dir.list_dir_begin();
-	#	var file_name = dir.get_next();
-	#	while file_name != "":
-	#		run("res://Python/image_generation/data/%s" % file_name, "OUTPUT/%s" % file_name);
-	#		file_name = dir.get_next()
+	#run("res://Scenes/Input_Image.png", "/home/pin/green.png")
+	var dir = DirAccess.open("res://Python/image_generation/data/");
+	if dir:
+		dir.list_dir_begin();
+		var file_name = dir.get_next();
+		while file_name != "":
+			run("res://Python/image_generation/data/%s" % file_name, "/home/pin/OUTPUT/%s" % file_name);
+			file_name = dir.get_next()
 	pass
 
 func _process(delta):
