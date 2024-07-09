@@ -41,7 +41,8 @@ func _ready():
 			write_g(map.get_pixel(x,y)[1], x, y, coordinates)
 			write_b(map.get_pixel(x,y)[2], x, y)
 			write_a(map.get_pixel(x,y)[3], x, y)
-	
+	#for i in range(coordinates.size()):
+		
 	print(coordinates)
 	#print(train.position)
 	for i in range(sprites.size()):
