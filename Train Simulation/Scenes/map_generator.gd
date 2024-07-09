@@ -14,8 +14,8 @@ var maximum = 500000
 @onready var tile_pos = local_to_map(position)
 @onready var map = $"heightmap".texture.get_image()
 
-#@onready var train_stop = $trainStop
-#@onready var train = $train
+@onready var train_stop = $trainStop
+@onready var train = $train
 @onready var train_stops_coords = []
 @onready var sprites = [$trainStop0,$trainStop1,$trainStop2, $trainStop3, $trainStop4, $trainStop5, $trainStop6, $trainStop7, $trainStop8, $trainStop9, $trainStop10, $trainStop11, $trainStop12, $trainStop13, $trainStop14, $trainStop15, $trainStop16, $trainStop17, $trainStop18, $trainStop19]
 @onready var trains = [$train0, $train1, $train2, $train3, $train4, $train5, $train6, $train7, $train8, $train9, $train10, $train11, $train12, $train13, $train14, $train15, $train16, $train17, $train18, $train19]
@@ -101,9 +101,7 @@ var movement_active = true
 var positions_history=[]
 var iteration_count=0
 
-func _process(delta):
-	if Input.is_action_just_pressed("Space"):
-		toggle_cameras()
+#func _process(delta):
 	#if movement_active:
 		#var moved = false
 		#for x in range(int(train.position.x) - 1, int(train.position.x) + 2):
@@ -122,10 +120,3 @@ func _process(delta):
 					#break
 			#if moved:
 				#break
-func toggle_cameras():
-	if $Camera2D.enabled:
-		$Camera2D.enabled = false
-		$"../TrainMap2/Camera2D".enabled = true
-	else:
-		$Camera2D.enabled = true
-		$"../TrainMap2/Camera2D".enabled = false
