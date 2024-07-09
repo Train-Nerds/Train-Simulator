@@ -41,21 +41,17 @@ func _ready():
 			write_g(map.get_pixel(x,y)[1], x, y, coordinates)
 			write_b(map.get_pixel(x,y)[2], x, y)
 			write_a(map.get_pixel(x,y)[3], x, y)
-	#sets train positon to random alpha value of track
-	var randindex = randi() % alphas.size()
-	#train.position.x = alphas[randindex][0]
-	#train.position.y = alphas[randindex][1]
 	
 	print(coordinates)
 	#print(train.position)
-	for x in range(sprites.size()):
-		sprites[x].position = Vector2i(2024,2024)
-		trains[x].position = Vector2i(2024,2024)
-	for x in range(coordinates.size()):
-		sprites[x].position = Vector2i(coordinates[x])
-		trains[x].position = Vector2(alphas[randindex])
-		print(trains[x].position)
-			
+	for i in range(sprites.size()):
+		sprites[i].position = Vector2i(2024,2024)
+		trains[i].position = Vector2i(2024,2024)
+	for i in range(coordinates.size()):
+		var randindex = randi() % alphas.size()
+		sprites[i].position = Vector2i(coordinates[i])
+		trains[i].position = Vector2(alphas[randindex])
+		
 	altitude.seed = randi()
 	##generate_chunk(player.position)
 	

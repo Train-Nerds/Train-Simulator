@@ -9,7 +9,7 @@ func _ready():
 	#print("executing")
 	
 	#OS.create_process("c:\\winnt\\system32\\cmd.exe", [])
-	pass
+	$AnimationPlayer.play("RESET")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

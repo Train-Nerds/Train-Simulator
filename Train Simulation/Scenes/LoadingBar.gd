@@ -8,4 +8,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(value < goalPercent):
-		value += 0.5
+		value += 0.1
