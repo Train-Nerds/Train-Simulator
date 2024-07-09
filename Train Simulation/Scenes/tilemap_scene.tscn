@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bifgkfvxlqwkf"]
+[gd_scene load_steps=11 format=3 uid="uid://bifgkfvxlqwkf"]
 
 [ext_resource type="Texture2D" uid="uid://bpdhmsqthhelw" path="res://trainerds_tilemap.png" id="1_uk4el"]
 [ext_resource type="Script" path="res://Scenes/map_generator.gd" id="2_f81y8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bqwbhc4fiy5id" path="res://trainicon.png" id="5_7sebg"]
 [ext_resource type="Texture2D" uid="uid://dmqat4jgmi50" path="res://Scenes/sigmaCircle.png" id="6_wrbo5"]
 [ext_resource type="Script" path="res://Scenes/map2_generator.gd" id="7_wfytw"]
+[ext_resource type="Texture2D" uid="uid://bkvphcpqxm8v0" path="res://space.png" id="7_xm4fk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fdqbd"]
 texture = ExtResource("1_uk4el")
@@ -297,6 +298,11 @@ texture = ExtResource("6_wrbo5")
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("6_wrbo5")
 
+[node name="SpaceBar" type="Sprite2D" parent="TrainMap"]
+position = Vector2(996, 222)
+scale = Vector2(5, 5)
+texture = ExtResource("7_xm4fk")
+
 [node name="TrainMap2" type="TileMap" parent="."]
 position = Vector2(3000, 500)
 tile_set = SubResource("TileSet_0mjy0")
@@ -560,3 +566,8 @@ texture = ExtResource("6_wrbo5")
 [node name="trainStop19" type="Sprite2D" parent="TrainMap2"]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("6_wrbo5")
+
+[node name="SpaceBar2" type="Sprite2D" parent="TrainMap2"]
+position = Vector2(996, 222)
+scale = Vector2(5, 5)
+texture = ExtResource("7_xm4fk")
