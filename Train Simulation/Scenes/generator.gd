@@ -116,13 +116,14 @@ func run(input_path: String, output_path: String) -> Image:
 	return image;
 
 func _ready():
-	var dir = DirAccess.open("res://Python/image_generation/data/");
-	if dir:
-		dir.list_dir_begin();
-		var file_name = dir.get_next();
-		while file_name != "":
-			run("res://Python/image_generation/data/%s" % file_name, "/home/pin/OUTPUT/%s" % file_name);
-			file_name = dir.get_next()
+	#var dir = DirAccess.open("res://Python/image_generation/data/");
+	#if dir:
+	#	dir.list_dir_begin();
+	#	var file_name = dir.get_next();
+	#	while file_name != "":
+	#		run("res://Python/image_generation/data/%s" % file_name, "OUTPUT/%s" % file_name);
+	#		file_name = dir.get_next()
+	pass
 
 func _process(delta):
 	pass
