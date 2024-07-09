@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bifgkfvxlqwkf"]
+[gd_scene load_steps=14 format=3 uid="uid://bifgkfvxlqwkf"]
 
 [ext_resource type="Texture2D" uid="uid://bpdhmsqthhelw" path="res://trainerds_tilemap.png" id="1_uk4el"]
 [ext_resource type="Script" path="res://Scenes/map_generator.gd" id="2_f81y8"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" path="res://Scenes/train0.gd" id="6_sdcec"]
 [ext_resource type="Texture2D" uid="uid://dmqat4jgmi50" path="res://Scenes/sigmaCircle.png" id="6_wrbo5"]
 [ext_resource type="Script" path="res://Scenes/map2_generator.gd" id="7_wfytw"]
+
+[ext_resource type="Texture2D" uid="uid://bkvphcpqxm8v0" path="res://space.png" id="8_f48iy"]
+[ext_resource type="Texture2D" uid="uid://bigwo4tpsb813" path="res://proceduralsign.png" id="9_rppvs"]
+[ext_resource type="Texture2D" uid="uid://cdi647ahekepi" path="res://aimlsign-1.png.png" id="11_5r5gv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fdqbd"]
 texture = ExtResource("1_uk4el")
@@ -319,8 +323,16 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("6_wrbo5")
 
 [node name="SpaceBar" type="Sprite2D" parent="TrainMap"]
-position = Vector2(996, 222)
+position = Vector2(1000, 225)
 scale = Vector2(5, 5)
+
+texture = ExtResource("8_f48iy")
+
+[node name="proceduralsign" type="Sprite2D" parent="TrainMap"]
+position = Vector2(50, 225)
+scale = Vector2(4, 4)
+texture = ExtResource("9_rppvs")
+
 
 [node name="TrainMap2" type="TileMap" parent="."]
 position = Vector2(3000, 500)
@@ -607,5 +619,12 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("6_wrbo5")
 
 [node name="SpaceBar2" type="Sprite2D" parent="TrainMap2"]
-position = Vector2(996, 222)
+position = Vector2(1000, 225)
 scale = Vector2(5, 5)
+
+texture = ExtResource("8_f48iy")
+
+[node name="aimlsign" type="Sprite2D" parent="TrainMap2"]
+position = Vector2(50, 225)
+scale = Vector2(4, 4)
+texture = ExtResource("11_5r5gv")
