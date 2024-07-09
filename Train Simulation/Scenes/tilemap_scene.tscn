@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://Scenes/map_generator.gd" id="2_f81y8"]
 [ext_resource type="Texture2D" uid="uid://flv5f62axxb2" path="res://Scenes/img_test.jpg" id="3_jfhcs"]
 [ext_resource type="Texture2D" uid="uid://kkjiwrql3ogo" path="res://tst.png" id="4_equwf"]
-
 [ext_resource type="Texture2D" uid="uid://bqwbhc4fiy5id" path="res://trainicon.png" id="5_7sebg"]
 [ext_resource type="Texture2D" uid="uid://dmqat4jgmi50" path="res://Scenes/sigmaCircle.png" id="6_wrbo5"]
 [ext_resource type="Script" path="res://Scenes/map2_generator.gd" id="7_wfytw"]
@@ -278,7 +277,6 @@ texture = ExtResource("6_wrbo5")
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("6_wrbo5")
 
-
 [node name="trainStop15" type="Sprite2D" parent="TrainMap"]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("6_wrbo5")
@@ -307,7 +305,6 @@ format = 2
 script = ExtResource("7_wfytw")
 
 [node name="player" type="Sprite2D" parent="TrainMap2"]
-
 visible = false
 z_index = 1
 position = Vector2(500, 500)
@@ -365,7 +362,6 @@ z_index = 2
 position = Vector2(382.291, 427.689)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_7sebg")
-
 centered = false
 offset = Vector2(-5, 0)
 
@@ -562,6 +558,5 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("6_wrbo5")
 
 [node name="trainStop19" type="Sprite2D" parent="TrainMap2"]
-
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("6_wrbo5")
