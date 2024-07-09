@@ -1,8 +1,10 @@
 extends TileMap
+
 ##tilemap output
 var altitude = FastNoiseLite.new()
 var temperature = FastNoiseLite.new()
 var moisture = FastNoiseLite.new()
+
 ##set these for size
 var width = 1000
 var height = 1000
@@ -13,7 +15,6 @@ var maximum = 500000
 @onready var player = $player
 @onready var tile_pos = local_to_map(position)
 @onready var map = $"heightmap".texture.get_image()
-
 
 #@onready var train_stop = $trainStop
 #@onready var train = $train
@@ -26,6 +27,7 @@ var maximum = 500000
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#signal testing, should communicate with noise_read.gd
+	print("Tile map is open")
 	print(width, height)
 	map.convert(Image.FORMAT_RGBA8)
 	var coordinates = []
