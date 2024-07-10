@@ -20,10 +20,12 @@ var maximum = 500000
 @onready var sprites = [$trainStop0,$trainStop1,$trainStop2, $trainStop3, $trainStop4, $trainStop5, $trainStop6, $trainStop7, $trainStop8, $trainStop9, $trainStop10, $trainStop11, $trainStop12, $trainStop13, $trainStop14, $trainStop15, $trainStop16, $trainStop17, $trainStop18, $trainStop19]
 @onready var trains = [$train0, $train1, $train2, $train3, $train4, $train5, $train6, $train7, $train8, $train9, $train10, $train11, $train12, $train13, $train14, $train15, $train16, $train17, $train18, $train19]
 
+@onready var seed = FileAccess.open("user://Seed.txt", FileAccess.READ).get_as_text()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#signal testing, should communicate with noise_read.gd
+	map = load("res://OUTPUT/tsgi_" + seed + ".png").get_image()
 	print(width, height)
 	map.convert(Image.FORMAT_RGBA8)
 	var coordinates = []

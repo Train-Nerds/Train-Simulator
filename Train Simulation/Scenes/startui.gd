@@ -70,22 +70,25 @@ func _on_start_button_pressed():
 
 #region Writing to a File (.bin)	
 	
-	var information = {
-		cities_amt = self.cities_amt,
-		seed = self.noiseSeed,
-		waterLevel = self.waterLevel,
-		noiseScale = self.noiseScale,
-		octaves = self.octaves,
-		lacunarity = self.lacunarity
-	}
+	#var information = {
+		#cities_amt = self.cities_amt,
+		#seed = self.noiseSeed,
+		#waterLevel = self.waterLevel,
+		#noiseScale = self.noiseScale,
+		#octaves = self.octaves,
+		#lacunarity = self.lacunarity
+	#}
+	#
+	#var jstr = JSON.stringify(information)
+	#print(str(ProjectSettings.globalize_path(SAVE_PATH)))
+	#FileAccess.open(ProjectSettings.globalize_path(SAVE_PATH), FileAccess.WRITE).store_line(jstr)
+	#
+	#jstr = "{\"loadingProgress\": 1}"
+	#print(str(ProjectSettings.globalize_path(LOAD_INFO_PATH)))
+	#FileAccess.open(ProjectSettings.globalize_path(LOAD_INFO_PATH), FileAccess.WRITE).store_line(jstr)
 	
-	var jstr = JSON.stringify(information)
-	print(str(ProjectSettings.globalize_path(SAVE_PATH)))
-	FileAccess.open(ProjectSettings.globalize_path(SAVE_PATH), FileAccess.WRITE).store_line(jstr)
+	FileAccess.open("user://Seed.txt", FileAccess.WRITE).store_string(str(self.noiseSeed))
 	
-	jstr = "{\"loadingProgress\": 1}"
-	print(str(ProjectSettings.globalize_path(LOAD_INFO_PATH)))
-	FileAccess.open(ProjectSettings.globalize_path(LOAD_INFO_PATH), FileAccess.WRITE).store_line(jstr)
 	
 	$AnimationPlayer.play("closing_Animations")
 	

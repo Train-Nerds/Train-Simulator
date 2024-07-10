@@ -15,7 +15,7 @@ var maximum = 500000
 @onready var player = $player
 @onready var tile_pos = local_to_map(position)
 @onready var map = $"heightmap".texture.get_image()
-
+@onready var seed = FileAccess.open("user://Seed.txt", FileAccess.READ).get_as_text()
 #@onready var train_stop = $trainStop
 #@onready var train = $train
 
@@ -27,6 +27,8 @@ var maximum = 500000
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#signal testing, should communicate with noise_read.gd
+	map = load("res://Completed Images/tsgi_" + self.seed + ".png").get_image()
+	print("res://Completed Images/tsgi_" + self.seed + ".png")
 	print("Tile map is open")
 	print(width, height)
 	map.convert(Image.FORMAT_RGBA8)

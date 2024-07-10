@@ -1,16 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://bifgkfvxlqwkf"]
+[gd_scene load_steps=17 format=3 uid="uid://bifgkfvxlqwkf"]
 
 [ext_resource type="Texture2D" uid="uid://bpdhmsqthhelw" path="res://trainerds_tilemap.png" id="1_uk4el"]
 [ext_resource type="Script" path="res://Scenes/map_generator.gd" id="2_f81y8"]
 [ext_resource type="Texture2D" uid="uid://flv5f62axxb2" path="res://Scenes/img_test.jpg" id="3_jfhcs"]
-[ext_resource type="Texture2D" uid="uid://cci0btl2ub803" path="res://tsgi_105.png" id="4_8q0uw"]
-[ext_resource type="Texture2D" uid="uid://bqwbhc4fiy5id" path="res://trainicon.png" id="5_7sebg"]
+[ext_resource type="Texture2D" uid="uid://pdjeovm2uvmb" path="res://Scenes/Input_Image.png" id="4_8q0uw"]
+[ext_resource type="Texture2D" uid="uid://dx8ky4ril214y" path="res://Scenes/output.png" id="4_umoqh"]
+[ext_resource type="Texture2D" uid="uid://b3bsxjlc3kfee" path="res://Scenes/trainicon.png" id="5_7sebg"]
 [ext_resource type="Script" path="res://Scenes/train0.gd" id="6_sdcec"]
 [ext_resource type="Texture2D" uid="uid://dmqat4jgmi50" path="res://Scenes/sigmaCircle.png" id="6_wrbo5"]
 [ext_resource type="Script" path="res://Scenes/map2_generator.gd" id="7_wfytw"]
-[ext_resource type="Texture2D" uid="uid://bkvphcpqxm8v0" path="res://space.png" id="8_sfk1p"]
-[ext_resource type="Texture2D" uid="uid://bigwo4tpsb813" path="res://proceduralsign.png" id="9_6drpg"]
-[ext_resource type="Texture2D" uid="uid://cdi647ahekepi" path="res://aimlsign-1.png.png" id="11_y0nri"]
+[ext_resource type="Texture2D" uid="uid://bucp4x08foglq" path="res://Scenes/space.png" id="8_sfk1p"]
+[ext_resource type="Texture2D" uid="uid://n6otonoh832h" path="res://Scenes/proceduralsign.png" id="9_6drpg"]
+[ext_resource type="Texture2D" uid="uid://0j5xems8mbtx" path="res://Scenes/aimlsign-1.png.png" id="11_y0nri"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fdqbd"]
 texture = ExtResource("1_uk4el")
@@ -59,7 +60,7 @@ texture = ExtResource("3_jfhcs")
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("4_8q0uw")
+texture = ExtResource("4_umoqh")
 
 [node name="train0" type="Sprite2D" parent="TrainMap"]
 z_index = 2
