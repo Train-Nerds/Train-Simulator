@@ -6,8 +6,10 @@ extends Sprite2D
 #@onready var iteration_count=0
 
 @onready var coordinates=[]
+@onready var seed = FileAccess.open("user://Seed.txt", FileAccess.READ).get_as_text()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	map = load("res://Completed Images/tsgi_" + self.seed + ".png").get_image()
 	for x in range(1000):
 		for y in range(1000):
 			#getting green pixels, adding to coord vector
