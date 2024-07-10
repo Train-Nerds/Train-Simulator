@@ -1,7 +1,8 @@
 import subprocess
 from Python.image_generation import terrainGeneration
-# from Python.Machine_Learning import MLPathCreator
-# import Python.Machine_Learning.Model1 as m1
+import Python.Yale_Trainerds
+from Python.Yale_Trainerds import MLPathCreator as ml
+from Python.Yale_Trainerds import Model1
 import torch
 from PIL import Image
 import os
@@ -32,10 +33,13 @@ loadingFile.close()
 def loadLoadingInfo():
     loadingFile = open(instructionFilePath)
     #print(loadingFile)
-    loadingInfo = json.load((loadingFile))
-    print(loadingInfo)
-    loadingState = loadingInfo['loadingProgress']
-    return loadingState
+    try:
+        loadingInfo = json.load((loadingFile))
+        print(loadingInfo)
+        loadingState = loadingInfo['loadingProgress']
+        return loadingState
+    except:
+        pass
     
 hasBegunTerrain = False
 hasBegunAiGeneration = False
@@ -62,13 +66,16 @@ while True:
         case 5:
             print(5)
             if(not hasBegunAiGeneration):
-                # hasBegunAiGeneration = False
-                # informationMap = Image.open(os.path.expanduser( "~" ) + "\\AppData\\Roaming\\Godot\\app_userdata\\Train Simulation\\informationMap.png")
-                # print("information map found")
-                # AIoutput = MLPathCreator.generateTerrain(informationMap)
-                # print("AI is done")
-                # AIoutput.save(os.path.expanduser( "~" ) + "\\AppData\\Roaming\\Godot\\app_userdata\\Train Simulation\\AiOutput.png")
-                # loadingFile = open(instructionFilePath, "w")
+                hasBegunAiGeneration = False
+                print("creating image")
+                informationMap = Image.open(os.path.expanduser( "~" ) + "\\AppData\\Roaming\\Godot\\app_userdata\\Train Simulation\\informationMap.png")
+                informationMap.show()
+                print("information map found")
+                AIoutput = ml.generateTracks(informationMap)
+                print("AI is done")
+                AIoutput.save(os.path.expanduser( "~" ) + "\\AppData\\Roaming\\Godot\\app_userdata\\Train Simulation\\AiOutput.png")
+                loadingFile = open(instructionFilePath, "w")
+                
                 loadingInfo = {
                     "loadingProgress" : 6
                 }
