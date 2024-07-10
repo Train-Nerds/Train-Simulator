@@ -13,7 +13,7 @@ func find_cities(p: Image) -> Array:
 	var height: int = p.get_height();
 	for x in range(width):
 		for y in range(height):
-			if p.get_pixel(x, y)[1] > 0:
+			if p.get_pixel(x, y)[1] == 1:
 				cities.append(Vector2(x, y));
 	return cities
 
@@ -26,14 +26,12 @@ func coords_to_index(columns: int, x: int, y: int) -> int:
 	return y * columns + x;
 
 func compute_center(coordinate_pairs: Array) -> Vector2:
-	print(coordinate_pairs)
 	var center: Vector2 = Vector2(0, 0);
 	var amount = coordinate_pairs.size();
 	for pair in coordinate_pairs:
 		center += pair;
 	center[0] /= amount; center[1] /= amount;
 	center[0] = roundi(center[0]); center[1] = roundi(center[1]);
-	print(center)
 	return center
 
 func linear_reduce_average_deviation(input_set: Array) -> Array:
@@ -63,14 +61,14 @@ func path(a: Vector2, b: Vector2, image: Image) -> Image:
 		is_y = y_grad <= x_grad and dxdy[1] as bool or not dxdy[0] as bool;
 		var turn = is_y as int;
 		
-		# look ahead and see if there is water
-		if image.get_pixelv(head + dxdy[turn])[2] > 0:
-			var river = image.get_pixelv(head + 3*dxdy[turn])[2] == 0;
-		# if there is a river, cross it.
-		# if there is a lake, go around
 		
-		head[turn] += dxdy[turn];
+		const ZV = Vector2(0, 0);
+		var move = ZV;
+		move[turn] = dxdy[turn];
+		
+		head += move;
 		if (a-head)[turn] == 0: dxdy[turn] = 0;
+		color = image.get_pixelv(head)
 		color[3] = 0;
 		image.set_pixelv(head, color);
 	return image;
@@ -101,8 +99,7 @@ func pythag_center(points: Array) -> Vector2:
 func run(input_path: String, output_path: String) -> Image:
 	var image: Image = copy_to_rgba(Image.load_from_file(input_path));
 	var cities: Array = find_cities(image);
-	var center: Vector2 = pythag_center(cities);
-	
+	var center: Vector2 = compute_center(cities);
 	var deviations: Array = cities.map(func(city: Vector2): return (city - center));
 	var maximum_deviation: Vector2 = deviations.reduce(func(accum, vec: Vector2): return vec_max(accum, vec));
 	
@@ -117,11 +114,20 @@ func run(input_path: String, output_path: String) -> Image:
 
 	image.save_png(output_path);
 	
+	cities = find_cities(image)
+	print(cities)
 	return image;
 
 func _ready():
-	run("res://Scenes/Input_Image.png", "/home/pin/output.png")
+	#run("res://Scenes/Input_Image.png", "/home/pin/green.png")
+	var dir = DirAccess.open("res://Python/image_generation/data/");
+	if dir:
+		dir.list_dir_begin();
+		var file_name = dir.get_next();
+		while file_name != "":
+			run("res://Python/image_generation/data/%s" % file_name, "/home/pin/OUTPUT/%s" % file_name);
+			file_name = dir.get_next()
 	pass
-	
+
 func _process(delta):
 	pass
