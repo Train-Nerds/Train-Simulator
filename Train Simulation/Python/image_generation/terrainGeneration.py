@@ -312,7 +312,7 @@ def main():
     #populationMap.save("populationmap.png")
     heightmap = heightmap.convert("L")
     informationMap = Image.merge("RGB", (heightmap, populationMap, rivermap))
-    informationMap.save(thisPath + "\\informationMap.png")
+    informationMap.save(os.path.expanduser( "~" ) + "\\AppData\\Roaming\\Godot\\app_userdata\\Train Simulation\\informationMap.png")
     #informationMap.show()
     #Image.fromarray(add_color2(informationMap).astype(np.uint8)).show()
 
