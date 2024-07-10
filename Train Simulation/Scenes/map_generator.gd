@@ -27,8 +27,8 @@ var maximum = 500000
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#signal testing, should communicate with noise_read.gd
-	map = load("res://Completed Images/tsgi_" + self.seed + ".png").get_image()
-	print("res://Completed Images/tsgi_" + self.seed + ".png")
+	map = load("res://OUTPUT/tsgi_" + self.seed + ".png").get_image()
+	print("res://OUTPUT/tsgi_" + self.seed + ".png")
 	print("Tile map is open")
 	print(width, height)
 	map.convert(Image.FORMAT_RGBA8)
@@ -55,7 +55,8 @@ func _ready():
 		trains[i].position = Vector2i(2024,2024)
 	for i in range(coordinates.size()):
 		var randindex = randi() % alphas.size()
-		sprites[i].position = Vector2i(coordinates[i])
+		sprites[2 * i].position = Vector2i(coordinates[i])
+		sprites[2 * i + 1].global_position = Vector2i(sprites[2 * i].global_position.x + 2500, sprites[2 * i].global_position.y)
 		trains[i].position = Vector2(alphas[randindex])
 		
 	altitude.seed = randi()
